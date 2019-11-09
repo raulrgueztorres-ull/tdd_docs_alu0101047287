@@ -1,6 +1,6 @@
 module Food
 	class Food	
-		attr_reader :name, :proteins, :carbohydrates
+		attr_reader :name, :proteins, :carbohydrates, :lipids
 	
 		def initialize(name, proteins, carbohydrates, lipids, gei, ground)
 	
