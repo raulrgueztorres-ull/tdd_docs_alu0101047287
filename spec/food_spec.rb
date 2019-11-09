@@ -51,4 +51,16 @@ RSpec.describe Food do
                 end
 
         end
+
+	describe "# Atributo GEI" do
+
+                it "# Existe el atributo gei" do
+                        expect(@carne_vaca).to respond_to(:gei)
+                end
+
+                it "# Se almacena correctamente el valor de GEI" do
+                        expect(@carne_vaca.gei).to eq(50.0)
+                end
+
+        end
 end
