@@ -75,4 +75,11 @@ RSpec.describe Food do
                 end
 
         end
+
+	describe "# Alimento Formateado" do
+		
+		it "# Existe un método para formatear el alimento" do
+			expect(@carne_vaca).to respond_to(:to_s)
+		end
+	end
 end
