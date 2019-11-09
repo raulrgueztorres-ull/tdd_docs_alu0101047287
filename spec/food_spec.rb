@@ -96,5 +96,9 @@ RSpec.describe Food do
 		it "# Cálculo correcto de las kcal de los glúcidos" do
 			expect(@carne_vaca.kcal_carbohydrates(@carne_vaca.carbohydrates)).to eq(0)
 		end
+
+		it "# Cálculo correcto de las kcal de los lípidos" do
+			expect(@carne_vaca.kcal_lipids(@carne_vaca.lipids)).to eq(27.9)
+		end
 	end
 end
