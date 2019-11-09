@@ -9,7 +9,7 @@ module Food
 		end
 		
 		def to_s
-		
+                        "#{@name}: #{@proteins} g Proteins | #{@carbohydrates} g Carbohydrates | #{@lipids} g Lipids | #{@gei} kgCO2eq GEI | #{@ground} m2año Ground"	
 		end
 
 	end
