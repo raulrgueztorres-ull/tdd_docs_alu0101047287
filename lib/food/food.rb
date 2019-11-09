@@ -13,11 +13,11 @@ module Food
 		end
 		
 		def kcal_proteins(proteins_g)
-			return proteins_g * 4
+			return (proteins_g * 4).round(1)
 		end
 	
 		def kcal_carbohydrates(carbohydrates_g)
-			return carbohydrates_g * 4
+			return (carbohydrates_g * 4).round(1)
 		end
 		
 		def kcal_lipids(lipids_g)
