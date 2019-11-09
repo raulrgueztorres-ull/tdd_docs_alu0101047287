@@ -15,6 +15,10 @@ module Food
 		def kcal_proteins(proteins_g)
 			return proteins_g * 4
 		end
+	
+		def kcal_carbohydrates(carbohydrates_g)
+			return carbohydrates_g * 4
+		end
 
 	end
 end
