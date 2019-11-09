@@ -3,7 +3,7 @@ require 'food'
 RSpec.describe Food do
 	
 	before :all do
-		@carne_vaca = Food.new("Carne de Vaca", 21.1, 0.0, 3.1, 50.0, 164.0)
+		@carne_vaca = Food::Food.new("Carne de Vaca", 21.1, 0.0, 3.1, 50.0, 164.0)
 	end
 
 	describe "# Nombre del Alimento" do
