@@ -81,5 +81,9 @@ RSpec.describe Food do
 		it "# Existe un método para formatear el alimento" do
 			expect(@carne_vaca).to respond_to(:to_s)
 		end
+
+		it "# Se formatea correctamente el alimento" do
+			expect(@carne_vaca.to_s).to eq("#{@carne_vaca.name}: #{@carne_vaca.proteins} g Proteins | #{@carne_vaca.carbohydrates} g Carbohydrates | #{@carne_vaca.lipids} g Lipids | #{@carne_vaca.gei} kgCO2eq GEI | #{@carne_vaca.ground} m2año Ground")
+		end
 	end
 end

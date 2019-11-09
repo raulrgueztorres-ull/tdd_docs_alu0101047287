@@ -8,7 +8,7 @@ module Food
 	
 		end
 		
-		def to_s 
+		def to_s
 		
 		end
 
