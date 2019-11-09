@@ -63,4 +63,16 @@ RSpec.describe Food do
                 end
 
         end
+
+	describe "# Atributo Ground" do
+
+                it "# Existe el atributo ground" do
+                        expect(@carne_vaca).to respond_to(:ground)
+                end
+
+                it "# Se almacena correctamente el valor de ground" do
+                        expect(@carne_vaca.ground).to eq(164.0)
+                end
+
+        end
 end
