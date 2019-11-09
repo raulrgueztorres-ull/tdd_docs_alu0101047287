@@ -86,4 +86,11 @@ RSpec.describe Food do
 			expect(@carne_vaca.to_s).to eq("#{@carne_vaca.name}: #{@carne_vaca.proteins} g Proteins | #{@carne_vaca.carbohydrates} g Carbohydrates | #{@carne_vaca.lipids} g Lipids | #{@carne_vaca.gei} kgCO2eq GEI | #{@carne_vaca.ground} m2año Ground")
 		end
 	end
+
+	describe "# Kcal generadas por los macronutrientes" do
+		
+		it "Cálculo correcto de las kcal de las proteinas" do
+			expect(@carne_vaca.kcal_proteins(@carne_vaca.proteins)).to eq(84.4)
+		end
+	end
 end
