@@ -24,5 +24,13 @@ module Food
 			return (lipids_g * 9).round(1)
 		end
 
+		def energetic_value_simple(proteins_kcal, carbohydrates_kcal, lipids_kcal)
+			return (proteins_kcal + carbohydrates_kcal + lipids_kcal).round(1)
+		end
+		
+		def energetic_value_complex(proteins_g, carbohydrates_g, lipids_g)
+			return energetic_value_simple(kcal_proteins(proteins_g), kcal_carbohydrates(carbohydrates_g), kcal_lipids(lipids_g)).round(1)
+		end
+
 	end
 end
