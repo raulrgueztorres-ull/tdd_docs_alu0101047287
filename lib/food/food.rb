@@ -7,6 +7,10 @@ module Food
 			@name, @proteins, @carbohydrates, @lipids, @gei, @ground = name, proteins, carbohydrates, lipids, gei, ground
 	
 		end
+		
+		def to_s 
+		
+		end
 
 	end
 end
