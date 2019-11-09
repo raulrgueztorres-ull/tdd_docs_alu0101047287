@@ -11,5 +11,9 @@ RSpec.describe Food do
 		it "# Existe un método para obtener el nombre del alimento" do
 			expect(@carne_vaca).to respond_to(:name)
 		end
+
+		it "# Se almacena correctamente el nombre de un alimento" do
+			expect(@carne_vaca.name).to eq("Carne de Vaca")
+		end
 	end
 end
