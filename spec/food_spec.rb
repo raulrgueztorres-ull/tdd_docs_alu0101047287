@@ -101,4 +101,15 @@ RSpec.describe Food do
 			expect(@carne_vaca.kcal_lipids(@carne_vaca.lipids)).to eq(27.9)
 		end
 	end
+
+	describe "# Valor energético de un alimento" do
+		
+		it "# Cálculo correcto del valor energético de un alimento. Método complejo" do
+			expect(@carne_vaca.energetic_value_complex(@carne_vaca.proteins, @carne_vaca.carbohydrates, @carne_vaca.lipids)).to eq(112.3)
+		end
+
+		it "# Cálculo correcto del valor energético de un alimento. Método simple" do 
+			expect(@carne_vaca.energetic_value_simple(@carne_vaca.kcal_proteins(@carne_vaca.proteins), @carne_vaca.kcal_carbohydrates(@carne_vaca.carbohydrates), @carne_vaca.kcal_lipids(@carne_vaca.lipids))).to eq(112.3)
+		end
+	end
 end
