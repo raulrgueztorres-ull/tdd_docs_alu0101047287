@@ -16,4 +16,15 @@ RSpec.describe Food do
 			expect(@carne_vaca.name).to eq("Carne de Vaca")
 		end
 	end
+
+	describe "# Atributo Proteins" do 
+		
+		it "# Existe el atributo proteins" do
+			expect(@carne_vaca).to respond_to(:proteins)
+		end
+
+		it "# Se almacena correctamente el valor de las proteinas" do
+			expect(@carne_vaca.proteins).to eq(21.1)
+		end
+	end
 end
