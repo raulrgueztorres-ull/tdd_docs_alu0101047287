@@ -39,4 +39,16 @@ RSpec.describe Food do
 		end
 
 	end
+
+	describe "# Atributo Lipids" do
+
+                it "# Existe el atributo lipids" do
+                        expect(@carne_vaca).to respond_to(:lipids)
+                end
+
+                it "# Se almacena correctamente el valor de los lipidos" do
+                        expect(@carne_vaca.lipids).to eq(3.1)
+                end
+
+        end
 end
