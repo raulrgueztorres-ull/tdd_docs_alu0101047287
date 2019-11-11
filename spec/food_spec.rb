@@ -4,6 +4,20 @@ RSpec.describe Food do
 	
 	before :all do
 		@carne_vaca = Food::Food.new("Carne de Vaca", 21.1, 0.0, 3.1, 50.0, 164.0)
+		@carne_cordero = Food::Food.new("Carne de Cordero", 18.0, 0.0, 17.0, 20.0, 185.0)
+		@camarones = Food::Food.new("Camarones", 17.6, 1.5, 0.6, 18.0, 2.0)
+		@chocolate = Food::Food.new("Chocolate", 5.3, 47.0, 30.0, 2.3, 3.4)
+		@salmon = Food::Food.new("Salmón", 19.9, 0.0, 13.6, 6.0, 3.7)
+		@cerdo = Food::Food.new("Cerdo", 21.5, 0.0, 6.3, 7.6, 11.0)
+		@pollo = Food::Food.new("Pollo", 20.6, 0.0, 5.6, 5.7, 7.1)
+		@queso = Food::Food.new("Queso", 25.0, 1.3, 33.0, 11.0, 41.0)
+		@cerveza = Food::Food.new("Cerveza", 0.5, 3.6, 0.0, 0.24, 0.22)
+		@leche_vaca = Food::Food.new("Leche de Vaca", 3.3, 4.8, 3.2, 3.2, 8.9)
+		@huevos = Food::Food.new("Huevos", 13.0, 1.1, 11.0, 4.2, 5.7)
+		@cafe = Food::Food.new("Café", 0.1, 0.0, 0.0, 0.4, 0.3)
+		@tofu = Food::Food.new("Tofu", 8.0, 1.9, 4.8, 2.0, 2.2)
+		@lentejas = Food::Food.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4)
+		@nuez = Food::Food.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9)
 	end
 
 	describe "# Nombre del Alimento" do
@@ -112,4 +126,5 @@ RSpec.describe Food do
 			expect(@carne_vaca.energetic_value_simple(@carne_vaca.kcal_proteins(@carne_vaca.proteins), @carne_vaca.kcal_carbohydrates(@carne_vaca.carbohydrates), @carne_vaca.kcal_lipids(@carne_vaca.lipids))).to eq(112.3)
 		end
 	end
+
 end
