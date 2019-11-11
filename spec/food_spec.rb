@@ -18,6 +18,10 @@ RSpec.describe Food do
 		@tofu = Food::Food.new("Tofu", 8.0, 1.9, 4.8, 2.0, 2.2)
 		@lentejas = Food::Food.new("Lentejas", 23.5, 52.0, 1.4, 0.4, 3.4)
 		@nuez = Food::Food.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9)
+
+		@menu  = Food::Food.new("Menú", 0.0, 0.0, 0.0, 0.0, 0.0)
+		@hombre = [@chocolate.gei * 2, @queso.gei * 0.5, @nuez.gei * 1.5, @lentejas.gei]
+		@mujer = [@chocolate.gei, @nuez.gei * 0.5, @carne_vaca.gei, @lentejas.gei, @queso.gei];
 	end
 
 	describe "# Nombre del Alimento" do
@@ -125,6 +129,17 @@ RSpec.describe Food do
 		it "# Cálculo correcto del valor energético de un alimento. Método simple" do 
 			expect(@carne_vaca.energetic_value_simple(@carne_vaca.kcal_proteins(@carne_vaca.proteins), @carne_vaca.kcal_carbohydrates(@carne_vaca.carbohydrates), @carne_vaca.kcal_lipids(@carne_vaca.lipids))).to eq(112.3)
 		end
+	end
+		
+	describe "# Cálculo del impacto ambiental" do
+		it "# Se calcula correctamente el impacto ambiental de un hombre" do
+			expect(@menu.environmental_impact(@hombre)).to eq(10.95)
+		end
+	
+		it "# Se calcula correctamente el impacto ambiental de una mujer" do
+			expect(@menu.environmental_impact(@mujer)).to eq(63.85)
+		end
+		
 	end
 
 end

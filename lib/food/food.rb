@@ -31,6 +31,5 @@ module Food
 		def energetic_value_complex(proteins_g, carbohydrates_g, lipids_g)
 			return energetic_value_simple(kcal_proteins(proteins_g), kcal_carbohydrates(carbohydrates_g), kcal_lipids(lipids_g)).round(1)
 		end
-
 	end
 end
