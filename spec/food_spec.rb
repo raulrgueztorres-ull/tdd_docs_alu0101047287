@@ -22,6 +22,12 @@ RSpec.describe Food do
 		@menu  = Food::Food.new("Menú", 0.0, 0.0, 0.0, 0.0, 0.0)
 		@hombre = [@chocolate.gei * 2, @queso.gei * 0.5, @nuez.gei * 1.5, @lentejas.gei]
 		@mujer = [@chocolate.gei, @nuez.gei * 0.5, @carne_vaca.gei, @lentejas.gei, @queso.gei];
+	
+		@hombre_complejo = [@chocolate, @queso, @nuez, @lentejas]
+		@mujer_complejo = [@chocolate, @nuez, @carne_vaca, @lentejas, @queso]
+		@hombre_cantidad = [2, 0.5, 1.5, 1]
+		@mujer_cantidad = [1, 0.5, 1, 1, 1]
+		
 	end
 
 	describe "# Nombre del Alimento" do
@@ -139,7 +145,14 @@ RSpec.describe Food do
 		it "# Se calcula correctamente el impacto ambiental de una mujer" do
 			expect(@menu.environmental_impact(@mujer)).to eq(63.85)
 		end
+
+		it "# Se calcula correctamente el impacto ambiental complejo de un hombre" do
+			expect(@menu.environmental_impact_complex(@hombre_complejo, @hombre_cantidad)).to eq(10.95)
+		end
 		
+		it "# Se calcula correctamente el impacto ambiental complejo de una mujer" do
+			expect(@menu.environmental_impact_complex(@mujer_complejo, @mujer_cantidad)).to eq(63.85)
+		end
 	end
 
 end
