@@ -31,5 +31,13 @@ module Food
 		def energetic_value_complex(proteins_g, carbohydrates_g, lipids_g)
 			return energetic_value_simple(kcal_proteins(proteins_g), kcal_carbohydrates(carbohydrates_g), kcal_lipids(lipids_g)).round(1)
 		end
+	
+		def environmental_impact(impact_values)
+			impact_sum = 0
+			impact_values.each do |impact_val|
+				impact_sum += impact_val
+			end
+			return impact_sum
+		end
 	end
 end
