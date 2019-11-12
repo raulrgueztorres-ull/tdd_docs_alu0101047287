@@ -20,13 +20,22 @@ RSpec.describe Food do
 		@nuez = Food::Food.new("Nuez", 20.0, 21.0, 54.0, 0.3, 7.9)
 
 		@menu  = Food::Food.new("Menú", 0.0, 0.0, 0.0, 0.0, 0.0)
+	
 		@hombre = [@chocolate.gei * 2, @queso.gei * 0.5, @nuez.gei * 1.5, @lentejas.gei]
 		@mujer = [@chocolate.gei, @nuez.gei * 0.5, @carne_vaca.gei, @lentejas.gei, @queso.gei];
-	
+
+		@hombre_54 = [@carne_vaca.gei, @lentejas.gei, @leche_vaca.gei, @chocolate.gei, @cerveza.gei, @cafe.gei * 3]
+		@mujer_41 = [@carne_vaca.gei, @tofu.gei, @chocolate.gei, @leche_vaca.gei * 2]
+
 		@hombre_complejo = [@chocolate, @queso, @nuez, @lentejas]
 		@mujer_complejo = [@chocolate, @nuez, @carne_vaca, @lentejas, @queso]
 		@hombre_cantidad = [2, 0.5, 1.5, 1]
 		@mujer_cantidad = [1, 0.5, 1, 1, 1]
+
+		@hombre_54_complejo = [@carne_vaca, @lentejas, @leche_vaca, @chocolate, @cerveza, @cafe]
+		@mujer_41_complejo = [@carne_vaca, @tofu, @chocolate, @leche_vaca]
+		@hombre_54_cantidad = [1, 1, 1, 1, 1, 3]
+		@mujer_41_cantidad = [1, 1, 1, 2]
 		
 	end
 
@@ -146,12 +155,28 @@ RSpec.describe Food do
 			expect(@menu.environmental_impact(@mujer)).to eq(63.85)
 		end
 
+		it "# Se calcula correctamente el impacto ambiental de un hombre con proteinas 54 gramos" do
+			expect(@menu.environmental_impact(@hombre_54)).to eq(57.34)
+		end
+		
+		it "# Se calcula correctamente el impacto ambiental de una mujer con proteinas 41 gramos" do
+			expect(@menu.environmental_impact(@mujer_41)).to eq(60.69)
+		end
+
 		it "# Se calcula correctamente el impacto ambiental complejo de un hombre" do
 			expect(@menu.environmental_impact_complex(@hombre_complejo, @hombre_cantidad)).to eq(10.95)
 		end
 		
 		it "# Se calcula correctamente el impacto ambiental complejo de una mujer" do
 			expect(@menu.environmental_impact_complex(@mujer_complejo, @mujer_cantidad)).to eq(63.85)
+		end
+	
+		it "# Se calcula correctamente el impacto ambiental complejo de un hombre con proteinas 54 gramos" do
+			expect(@menu.environmental_impact_complex(@hombre_54_complejo, @hombre_54_cantidad)).to eq(57.34)
+		end
+		
+		it "# Se calcula correctamente el impacto ambiental complejo de una mujer con proteinas 41 gramos" do
+			expect(@menu.environmental_impact_complex(@mujer_41_complejo, @mujer_41_cantidad)).to eq(60.69)
 		end
 	end
 
