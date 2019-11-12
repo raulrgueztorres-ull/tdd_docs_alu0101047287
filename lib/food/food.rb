@@ -50,14 +50,16 @@ module Food
 
 		def environmental_impact_complex(food, amount)
 			impact_sum = 0
+			ground_sum = 0
 			if food.length == amount.length
 				for i in (0..food.length - 1) do 
 					impact_sum += ((food[i].gei).to_f * amount[i].to_f)
+					ground_sum += ((food[i].ground).to_f * amount[i].to_f)
 				end
 			else
 				raise 'Se ha producido un error. El tamaño del array de alimentos es distinto al tamaño del array de cantidades'
 			end
-			return impact_sum.round(2)
+			return [impact_sum.round(2), ground_sum.round(2)] 
 		end
 	end
 end
