@@ -37,7 +37,7 @@ module Food
 			impact_values.each do |impact_val|
 				impact_sum += impact_val
 			end
-			return impact_sum
+			return impact_sum.round(2)
 		end
 
 		def environmental_impact_complex(food, amount)
@@ -49,7 +49,7 @@ module Food
 			else
 				raise 'Se ha producido un error. El tamaño del array de alimentos es distinto al tamaño del array de cantidades'
 			end
-			return impact_sum
+			return impact_sum.round(2)
 		end
 	end
 end
