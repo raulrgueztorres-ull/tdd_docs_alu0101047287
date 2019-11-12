@@ -27,6 +27,9 @@ RSpec.describe Food do
 		@hombre_54 = [@carne_vaca.gei, @lentejas.gei, @leche_vaca.gei, @chocolate.gei, @cerveza.gei, @cafe.gei * 3]
 		@mujer_41 = [@carne_vaca.gei, @tofu.gei, @chocolate.gei, @leche_vaca.gei * 2]
 
+		@hombre_terreno = [ @carne_vaca.ground, @lentejas.ground, @leche_vaca.ground, @chocolate.ground, @cerveza.ground, @cafe.ground * 3]
+		@mujer_terreno = [ @carne_vaca.ground, @tofu.ground, @chocolate.ground, @leche_vaca.ground * 2]
+
 		@hombre_complejo = [@chocolate, @queso, @nuez, @lentejas]
 		@mujer_complejo = [@chocolate, @nuez, @carne_vaca, @lentejas, @queso]
 		@hombre_cantidad = [2, 0.5, 1.5, 1]
