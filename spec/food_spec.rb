@@ -167,19 +167,19 @@ RSpec.describe Food do
 		end
 		
 		it "# Se calcula correctamente el impacto ambiental complejo de un hombre" do
-			expect(@menu.environmental_impact_complex(@hombre_complejo, @hombre_cantidad)).to eq(10.95)
+			expect(@menu.environmental_impact_complex(@hombre_complejo, @hombre_cantidad)).to eq([10.95, 42.55])
 		end
 		
 		it "# Se calcula correctamente el impacto ambiental complejo de una mujer" do
-			expect(@menu.environmental_impact_complex(@mujer_complejo, @mujer_cantidad)).to eq(63.85)
+			expect(@menu.environmental_impact_complex(@mujer_complejo, @mujer_cantidad)).to eq([63.85, 215.75])
 		end
 	
 		it "# Se calcula correctamente el impacto ambiental complejo de un hombre con proteinas 54 gramos" do
-			expect(@menu.environmental_impact_complex(@hombre_54_complejo, @hombre_54_cantidad)).to eq(57.34)
+			expect(@menu.environmental_impact_complex(@hombre_54_complejo, @hombre_54_cantidad)).to eq([57.34, 180.82])
 		end
 		
 		it "# Se calcula correctamente el impacto ambiental complejo de una mujer con proteinas 41 gramos" do
-			expect(@menu.environmental_impact_complex(@mujer_41_complejo, @mujer_41_cantidad)).to eq(60.70)
+			expect(@menu.environmental_impact_complex(@mujer_41_complejo, @mujer_41_cantidad)).to eq([60.70, 187.4])
 		end
 	
 		it "# Se calcula correctamente el uso del terreno del menú de un hombre" do
