@@ -39,6 +39,14 @@ module Food
 			end
 			return impact_sum.round(2)
 		end
+	
+		def ground_use(ground)
+			ground_use_sum = 0
+			ground.each do |ground_val|	
+				ground_use_sum += ground_val
+			end
+			return ground_use_sum.round(2)	
+		end
 
 		def environmental_impact_complex(food, amount)
 			impact_sum = 0
