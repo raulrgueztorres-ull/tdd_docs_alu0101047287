@@ -42,7 +42,7 @@ RSpec.describe Food do
 		
 	end
 
-	describe "# Nombre del Alimento" do
+	context "# Nombre del Alimento" do
 
 		it "# Existe un método para obtener el nombre del alimento" do
 			expect(@carne_vaca).to respond_to(:name)
@@ -53,7 +53,7 @@ RSpec.describe Food do
 		end
 	end
 
-	describe "# Atributo Proteins" do 
+	context "# Atributo Proteins" do 
 		
 		it "# Existe el atributo proteins" do
 			expect(@carne_vaca).to respond_to(:proteins)
@@ -64,7 +64,7 @@ RSpec.describe Food do
 		end
 	end
 
-	describe "# Atributo Carbohydrates" do
+	context "# Atributo Carbohydrates" do
 	
 		it "# Existe el atributo carbohydrates" do
 			expect(@carne_vaca).to respond_to(:carbohydrates)
@@ -76,7 +76,7 @@ RSpec.describe Food do
 
 	end
 
-	describe "# Atributo Lipids" do
+	context "# Atributo Lipids" do
 
                 it "# Existe el atributo lipids" do
                         expect(@carne_vaca).to respond_to(:lipids)
@@ -88,7 +88,7 @@ RSpec.describe Food do
 
         end
 
-	describe "# Atributo GEI" do
+	context "# Atributo GEI" do
 
                 it "# Existe el atributo gei" do
                         expect(@carne_vaca).to respond_to(:gei)
@@ -100,7 +100,7 @@ RSpec.describe Food do
 
         end
 
-	describe "# Atributo Ground" do
+	context "# Atributo Ground" do
 
                 it "# Existe el atributo ground" do
                         expect(@carne_vaca).to respond_to(:ground)
@@ -112,7 +112,7 @@ RSpec.describe Food do
 
         end
 
-	describe "# Alimento Formateado" do
+	context "# Alimento Formateado" do
 		
 		it "# Existe un método para formatear el alimento" do
 			expect(@carne_vaca).to respond_to(:to_s)
@@ -123,7 +123,7 @@ RSpec.describe Food do
 		end
 	end
 
-	describe "# Kcal generadas por los macronutrientes" do
+	context "# Kcal generadas por los macronutrientes" do
 		
 		it "# Cálculo correcto de las kcal de las proteinas" do
 			expect(@carne_vaca.kcal_proteins(@carne_vaca.proteins)).to eq(84.4)
@@ -138,7 +138,7 @@ RSpec.describe Food do
 		end
 	end
 
-	describe "# Valor energético de un alimento" do
+	context "# Valor energético de un alimento" do
 		
 		it "# Cálculo correcto del valor energético de un alimento. Método complejo" do
 			expect(@carne_vaca.energetic_value_complex(@carne_vaca.proteins, @carne_vaca.carbohydrates, @carne_vaca.lipids)).to eq(112.3)
@@ -149,7 +149,7 @@ RSpec.describe Food do
 		end
 	end
 		
-	describe "# Cálculo del impacto ambiental" do
+	context "# Cálculo del impacto ambiental" do
 		it "# Se calcula correctamente el impacto ambiental de un hombre" do
 			expect(@menu.environmental_impact(@hombre)).to eq(10.95)
 		end
