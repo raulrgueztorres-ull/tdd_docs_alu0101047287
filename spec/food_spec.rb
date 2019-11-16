@@ -240,5 +240,12 @@ RSpec.describe Food do
 		it "# Existe un método para insertar valores en la lista por la cola" do 
 			expect(@list).to respond_to(:insert_tail)
 		end
+
+		it "# Se inserta correctamente un nodo por la cola" do
+			expect(@list.insert_tail(@cerdo)).to eq(@list.tail)
+			expect(@list.tail.value.name).to eq("Cerdo")
+			expect(@list.tail.prev).to eq(nil)
+			expect(@list.tail.nex.value.name).to eq("Carne de Vaca")
+		end
 	end
 end
