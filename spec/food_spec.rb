@@ -261,6 +261,13 @@ RSpec.describe Food do
 		it "# Existe un método para extraer valores en la lista por la cabeza" do
 			expect(@list).to respond_to(:extract_head)
 		end
+
+            	it "# Se extrae correctamente un elemento por la cabeza" do
+                        head = @list.head
+                        prev_head = @list.head.prev
+                        expect((@list.extract_head()).value.name).to eq(head.value.name)
+                        expect(@list.head.value.name).to eq(prev_head.value.name)
+                end
 	end
 
 end
