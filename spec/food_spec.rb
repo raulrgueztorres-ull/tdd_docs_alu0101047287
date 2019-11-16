@@ -280,5 +280,11 @@ RSpec.describe Food do
 			expect(@list.tail.value.name).to eq(next_tail.value.name)
 		end
 	end
+	
+	context "# Dieta Española" do
+		it "# Se calcula correctamente la media de gases de la dieta española" do
+			expect(@menu.list_environmental_impact(@española)).to eq(44.6)
+		end	
+	end
 
 end
