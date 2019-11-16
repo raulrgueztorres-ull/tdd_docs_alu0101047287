@@ -272,6 +272,13 @@ RSpec.describe Food do
 		it "# Existe un método para extraer valores en la lista por la cola" do
 			expect(@list).to respond_to(:extract_tail)
 		end
+
+		it "# Se extrae correctamente un elemento por la cola" do
+			tail = @list.tail
+			next_tail = @list.tail.next
+			expect((@list.extract_tail()).value.name).to eq(tail.value.name)
+			expect(@list.tail.value.name).to eq(next_tail.value.name)
+		end
 	end
 
 end
