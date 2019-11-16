@@ -215,5 +215,13 @@ RSpec.describe Food do
 		it "# Existe un método para obtener el tail de la lista" do
 			expect(@list).to respond_to(:tail)
 		end
+
+		it "# Se introdujo correctamente el elemento head en la lista" do
+			expect(@list.head.value.name).to eq("Carne de Vaca")	
+		end
+
+		it "# Se introdujo correctamente el elemento head en la lista" do
+			expect(@list.tail.value.name).to eq("Carne de Vaca")
+		end
 	end
 end
