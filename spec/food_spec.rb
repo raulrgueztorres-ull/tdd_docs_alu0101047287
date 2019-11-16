@@ -195,6 +195,14 @@ RSpec.describe Food do
 	context "# Valor de Nodo" do 
 		it "# Se creó correctamente el nodo con el valor" do
 			expect(@node_carne_vaca.value.name).to eq("Carne de Vaca")
+		end
+		
+		it "# Se creó correctamente el nodo con el valor next" do
+			expect(@node_carne_vaca.next).to eq(nil)
+		end
+		
+		it "# Se creó correctamente el nodo con el valor prev" do
+			expect(@node_carne_vaca.prev).to eq(nil)
 		end	
 	end
 end
