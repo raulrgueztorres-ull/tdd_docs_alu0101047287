@@ -23,6 +23,16 @@ module Food
 		end
 		
 		def insert(values)
+			count = 0
+			values.each do |val|
+				insert_head(val)
+				if @head.value.name == val.name
+					count += 1
+				else 
+					raise "Se ha producido un error insertando el nodo"
+				end
+			end 
+			return count
 		end
 	end
 end
