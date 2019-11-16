@@ -43,5 +43,8 @@ module Food
 			@head = new_head
 			return current_head
 		end
+
+		def extract_tail()
+		end
 	end
 end
