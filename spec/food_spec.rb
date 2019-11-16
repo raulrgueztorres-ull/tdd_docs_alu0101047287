@@ -236,5 +236,9 @@ RSpec.describe Food do
 			expect(@list.head.next).to eq(nil)
 			expect(@list.head.prev.value.name).to eq("Carne de Vaca")
 		end
+
+		it "# Existe un método para insertar valores en la lista por la cola" do 
+			expect(@list).to respond_to(:insert_tail)
+		end
 	end
 end
