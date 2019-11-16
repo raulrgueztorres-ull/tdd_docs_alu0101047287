@@ -41,7 +41,10 @@ RSpec.describe Food do
 		@mujer_41_cantidad = [1, 1, 1, 2]
 		
 		@node_carne_vaca = Food::Node.new(@carne_vaca, nil, nil)
-		@list = Food::List.new(@carne_vaca)		
+		@list = Food::List.new(@carne_vaca)	
+		
+		@española = Food::List.new(@lentejas)
+		@española.insert([@lentejas, @camarones, @chocolate, @leche_vaca, @nuez, @carne_cordero])	
 	end
 
 	context "# Nombre del Alimento" do

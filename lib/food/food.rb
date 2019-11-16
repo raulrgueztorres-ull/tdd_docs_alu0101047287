@@ -1,5 +1,5 @@
 module Food
-	class Food	
+	class Food
 		attr_reader :name, :proteins, :carbohydrates, :lipids, :gei, :ground
 	
 		def initialize(name, proteins, carbohydrates, lipids, gei, ground)
@@ -60,6 +60,19 @@ module Food
 				raise 'Se ha producido un error. El tamaño del array de alimentos es distinto al tamaño del array de cantidades'
 			end
 			return [impact_sum.round(2), ground_sum.round(2)] 
+		end
+		
+		def list_environmental_impact(values)
+			impact_sum = 0
+			current_node = values.head
+			while current_node != values.tail	
+				impact_sum += (current_node.value.gei).to_f
+				current_node = current_node.prev
+			end
+			if current_node == values.tail
+				impact_sum += (current_node.value.gei).to_f
+			end
+			return impact_sum.round(2)
 		end
 	end
 end
