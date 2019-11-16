@@ -251,6 +251,10 @@ RSpec.describe Food do
 		it "# Existe un método para insertar varios valores en la lista" do
 			expect(@list).to respond_to(:insert)
 		end
+
+		it "# Se insertan correctamente un conjunto de nodos" do
+			expect(@list.insert([@tofu,@lentejas,@cafe,@chocolate])).to eq(4)
+		end 
 	end
 
 end
