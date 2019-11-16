@@ -245,7 +245,7 @@ RSpec.describe Food do
 			expect(@list.insert_tail(@cerdo)).to eq(@list.tail)
 			expect(@list.tail.value.name).to eq("Cerdo")
 			expect(@list.tail.prev).to eq(nil)
-			expect(@list.tail.nex.value.name).to eq("Carne de Vaca")
+			expect(@list.tail.next.value.name).to eq("Carne de Vaca")
 		end
 	end
 end

@@ -16,6 +16,10 @@ module Food
 		end
 		
 		def insert_tail(value)
+			current_tail = @tail
+			new_tail = Node.new(value, current_tail, nil)
+			current_tail.prev = new_tail
+			@tail = new_tail
 		end
 	end
 end
