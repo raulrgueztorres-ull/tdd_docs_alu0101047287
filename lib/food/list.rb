@@ -34,5 +34,8 @@ module Food
 			end 
 			return count
 		end
+	
+		def extract_head()
+		end
 	end
 end
