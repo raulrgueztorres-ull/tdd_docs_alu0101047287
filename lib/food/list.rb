@@ -36,6 +36,12 @@ module Food
 		end
 	
 		def extract_head()
+			current_head = @head
+			new_head = @head.prev
+			new_head.next = nil
+			current_head.prev = nil
+			@head = new_head
+			return current_head
 		end
 	end
 end
