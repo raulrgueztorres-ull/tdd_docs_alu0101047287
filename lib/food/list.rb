@@ -14,5 +14,8 @@ module Food
 			current_head.next = new_head
 			@head = new_head
 		end
+		
+		def insert_tail(value)
+		end
 	end
 end
