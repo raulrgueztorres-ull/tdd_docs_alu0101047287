@@ -296,6 +296,10 @@ RSpec.describe Food do
 		it "# Se calcula correctamente el uso del terreno de la dieta española" do
 			expect(@menu.list_ground_use(@española)).to eq(214)
 		end
+
+		it "# Se calcula correctamente el uso del terreno de la dieta española para un año" do
+			expect(@menu.list_ground_use_annual(@española)).to eq(78110)
+		end
 	end
 
 end
