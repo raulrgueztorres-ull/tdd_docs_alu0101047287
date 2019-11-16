@@ -9,6 +9,10 @@ module Food
 		end
 		
 		def insert_head(value)
+			current_head = @head
+			new_head = Node.new(value, nil, current_head)
+			current_head.next = new_head
+			@head = new_head
 		end
 	end
 end
