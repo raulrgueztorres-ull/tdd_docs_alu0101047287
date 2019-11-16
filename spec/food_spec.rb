@@ -229,5 +229,12 @@ RSpec.describe Food do
 		it "# Existe un método para insertar valores en la lista por la cabeza" do
 			expect(@list).to respond_to(:insert_head)
 		end
+		
+		it "# Se inserta correctamente un nodo en el head" do 
+			expect(@list.insert_head(@pollo)).to eq(@list.head)
+			expect(@list.head.value.name).to eq("Pollo")
+			expect(@list.head.next).to eq(nil)
+			expect(@list.head.prev.value.name).to eq("Carne de Vaca")
+		end
 	end
 end
