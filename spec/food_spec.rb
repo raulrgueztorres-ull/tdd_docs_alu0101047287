@@ -40,7 +40,8 @@ RSpec.describe Food do
 		@hombre_54_cantidad = [1, 1, 1, 1, 1, 3]
 		@mujer_41_cantidad = [1, 1, 1, 2]
 		
-		@node_carne_vaca = Food::Node.new(@carne_vaca, nil, nil)		
+		@node_carne_vaca = Food::Node.new(@carne_vaca, nil, nil)
+		@list = Food::List.new(@carne_vaca)		
 	end
 
 	context "# Nombre del Alimento" do
@@ -204,5 +205,11 @@ RSpec.describe Food do
 		it "# Se creó correctamente el nodo con el valor prev" do
 			expect(@node_carne_vaca.prev).to eq(nil)
 		end	
+	end
+
+	context "# Lista" do
+		it "# Se crea correctamente de head de la lista" do
+			expect(@list).to respond_to(:head)
+		end
 	end
 end
