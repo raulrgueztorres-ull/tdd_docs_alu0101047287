@@ -256,5 +256,11 @@ RSpec.describe Food do
 			expect(@list.insert([@tofu,@lentejas,@cafe,@chocolate])).to eq(4)
 		end 
 	end
+	
+	context "# Extraer en la lista" do
+		it "# Existe un método para extraer valores en la lista por la cabeza" do
+			expect(@list).to respond_to(:extract_head)
+		end
+	end
 
 end
