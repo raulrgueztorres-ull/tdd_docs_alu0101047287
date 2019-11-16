@@ -40,6 +40,7 @@ RSpec.describe Food do
 		@hombre_54_cantidad = [1, 1, 1, 1, 1, 3]
 		@mujer_41_cantidad = [1, 1, 1, 2]
 		
+		@node_carne_vaca = Food::Node.new(@carne_vaca, nil, nil)		
 	end
 
 	context "# Nombre del Alimento" do
@@ -189,5 +190,11 @@ RSpec.describe Food do
 		it "# Se calcula correctamente el uso del terreno del menú de una mujer" do
 			expect(@menu.ground_use(@mujer_terreno)).to eq(187.4)
 		end
+	end
+
+	context "# Valor de Nodo" do 
+		it "# Se creó correctamente el nodo con el valor" do
+			expect(@node_carne_vaca.value.name).to eq("Carne de Vaca")
+		end	
 	end
 end

@@ -1,6 +1,5 @@
 require "bundler/setup"
 require "food"
-require "list"
 
 RSpec.configure do |config|
 
