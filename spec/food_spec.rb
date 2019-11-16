@@ -208,11 +208,11 @@ RSpec.describe Food do
 	end
 
 	context "# Lista" do
-		it "# Se crea correctamente el head de la lista" do
+		it "# Existe un método para obtener el head de la lista" do
 			expect(@list).to respond_to(:head)
 		end
 	
-		it "# Se crea correctamente el elemento tail de la lista" do
+		it "# Existe un método para obtener el tail de la lista" do
 			expect(@list).to respond_to(:tail)
 		end
 	end
