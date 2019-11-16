@@ -21,5 +21,8 @@ module Food
 			current_tail.prev = new_tail
 			@tail = new_tail
 		end
+		
+		def insert(values)
+		end
 	end
 end
