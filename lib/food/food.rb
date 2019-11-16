@@ -100,5 +100,18 @@ module Food
 			end
 			return ground_sum.round(2)
 		end
+
+		def list_ground_use_annual(values)
+			ground_sum = 0
+			current_node = values.head
+			while current_node != values.tail
+				ground_sum += (current_node.value.ground).to_f
+				current_node = current_node.prev
+			end
+			if current_node == values.tail
+				ground_sum += (current_node.value.ground).to_f
+			end
+			return (ground_sum * 365).round(2)
+		end
 	end
 end
