@@ -45,6 +45,12 @@ module Food
 		end
 
 		def extract_tail()
+			current_tail = @tail
+			new_tail = @tail.next
+			new_tail.prev = nil
+			current_tail.next = nil
+			@tail = new_tail
+			return current_tail
 		end
 	end
 end
