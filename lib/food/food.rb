@@ -74,6 +74,25 @@ module Food
 			end
 			return impact_sum.round(2)
 		end
+		
+		def list_amount_environmental_impact(values, amount)
+			impact_sum = 0
+			current_node = values.tail
+			i = 0
+			if values.length == amount.length
+				while current_node != values.head
+					impact_sum += (current_node.value.gei * amount[i]).to_f
+					current_node = current_node.next
+					i += 1
+				end
+				if current_node == values.head
+					impact_sum += (current_node.value.gei * amount[i]).to_f
+				end
+			else
+				raise "Error. Los alimentos pasados y sus cantidades no son iguales."
+			end
+			return impact_sum.round(2)
+		end
 
 		def list_environmental_impact_annual(values)
 			impact_sum = 0

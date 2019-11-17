@@ -52,5 +52,15 @@ module Food
 			@tail = new_tail
 			return current_tail
 		end
+	
+		def length
+			current_node = self.head
+			length = 1
+			while current_node.prev != nil
+				length += 1
+				current_node = current_node.prev
+			end
+			return length
+		end
 	end
 end
