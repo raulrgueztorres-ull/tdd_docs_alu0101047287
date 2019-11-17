@@ -158,6 +158,25 @@ module Food
 			return ground_sum.round(2)
 		end
 
+		def list_amount_ground_use_annual(values, amount)
+			ground_sum = 0
+			current_node = values.tail
+			i = 0
+			if values.length == amount.length
+				while current_node != values.head
+					ground_sum += (current_node.value.ground * amount[i]).to_f
+					current_node = current_node.next
+					i += 1
+				end
+				if current_node == values.head
+					ground_sum += (current_node.value.ground * amount[i]).to_f
+				end
+			else
+				raise "Erorr. Los alimentos pasados y sus cantidades no son iguales."
+			end
+			return (ground_sum * 365).round(2)
+		end
+
 		def list_ground_use_annual(values)
 			ground_sum = 0
 			current_node = values.head
