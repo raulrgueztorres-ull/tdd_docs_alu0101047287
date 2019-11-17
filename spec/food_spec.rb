@@ -44,7 +44,11 @@ RSpec.describe Food do
 		@list = Food::List.new(@carne_vaca)	
 		
 		@española = Food::List.new(@lentejas)
-		@española.insert([@lentejas, @camarones, @chocolate, @leche_vaca, @nuez, @carne_cordero])	
+		@española.insert([@lentejas, @camarones, @chocolate, @leche_vaca, @nuez, @carne_cordero])
+		
+		@española_complex = Food::List.new(@lentejas)
+		@española_complex.insert([@camarones, @chocolate, @leche_vaca, @nuez, @carne_cordero])	
+		@cantidad_española = [2, 1, 1, 1, 1, 1]
 	end
 
 	context "# Nombre del Alimento" do
@@ -299,6 +303,10 @@ RSpec.describe Food do
 
 		it "# Se calcula correctamente el uso del terreno de la dieta española para un año" do
 			expect(@menu.list_ground_use_annual(@española)).to eq(78110)
+		end
+
+		it "# Se calcula correctamente la media de gases de la dieta española con cantidades" do 
+			expect(@menu.list_amount_environmental_impact(@española_complex, @cantidad_española)).to eq(44.6)
 		end
 	end
 
