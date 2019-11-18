@@ -46,9 +46,37 @@ RSpec.describe Food do
 		@española = Food::List.new(@lentejas)
 		@española.insert([@lentejas, @camarones, @chocolate, @leche_vaca, @nuez, @carne_cordero])
 		
+		@vasca = Food::List.new(@chocolate)
+                @vasca.insert([@leche_vaca, @leche_vaca, @tofu, @lentejas, @lentejas])
+
+                @vegetaria = Food::List.new(@lentejas)
+                @vegetaria.insert([@lentejas, @lentejas, @leche_vaca, @leche_vaca, @huevos, @queso, @queso])
+
+                @vegetaliana = Food::List.new(@lentejas)
+                @vegetaliana.insert([@lentejas, @lentejas, @tofu, @nuez])
+
+                @locura_carne = Food::List.new(@carne_vaca)
+                @locura_carne.insert([@pollo, @cerdo, @cerdo, @huevos, @leche_vaca, @lentejas])		
+
 		@española_complex = Food::List.new(@lentejas)
 		@española_complex.insert([@camarones, @chocolate, @leche_vaca, @nuez, @carne_cordero])	
 		@cantidad_española = [2, 1, 1, 1, 1, 1]
+
+		@vasca_complex = Food::List.new(@chocolate)
+                @vasca_complex.insert([@leche_vaca, @tofu, @lentejas])
+                @cantidad_vasca = [1, 2, 1, 2]
+
+                @vegetaria_complex = Food::List.new(@lentejas)
+                @vegetaria_complex.insert([@leche_vaca, @huevos, @queso])
+                @cantidad_vegetaria = [3, 2, 1, 1.5]
+
+                @vegetaliana_complex = Food::List.new(@lentejas)
+                @vegetaliana_complex.insert([@tofu, @nuez])
+                @cantidad_vegetaliana = [3, 1, 1]
+
+                @locura_carne_complex = Food::List.new(@carne_vaca)
+                @locura_carne_complex.insert([@pollo, @cerdo, @huevos, @leche_vaca, @lentejas])
+                @cantidad_locura_carne = [1, 1, 2, 1, 1, 1]
 	end
 
 	context "# Nombre del Alimento" do
@@ -321,5 +349,140 @@ RSpec.describe Food do
 			expect(@menu.list_amount_ground_use_annual(@española_complex, @cantidad_española)).to eq(78110)
 		end
 	end
+	
+	context "# Dieta Vasca" do
+                it "# Se calcula correctamente la media de gases de la dieta vasca" do
+                        expect(@menu.list_environmental_impact(@vasca)).to eq(11.5)
+                end
 
+                it "# Se calcula correctamente la media de gases de la dieta vasca para un año" do
+                        expect(@menu.list_environmental_impact_annual(@vasca)).to eq(4197.5)
+                end
+
+                it "# Se calcula correctamente el uso del terreno de la dieta vasca" do
+                        expect(@menu.list_ground_use(@vasca)).to eq(30.2)
+                end
+
+                it "# Se calcula correctamente el uso del terreno de la dieta vasca para un año" do
+                        expect(@menu.list_ground_use_annual(@vasca)).to eq(11023)
+                end
+
+                it "# Se calcula correctamente la media de gases de la dieta vasca con cantidades" do
+                        expect(@menu.list_amount_environmental_impact(@vasca_complex, @cantidad_vasca)).to eq(11.5)
+                end
+
+                it "# Se calcula correctamente la media de gases de la dieta vasca con cantidades para un año" do
+                        expect(@menu.list_amount_environmental_impact_annual(@vasca_complex, @cantidad_vasca)).to eq(4197.5)
+                end
+
+                it "# Se calcula correctamente el uso del terreno de la dieta vasca con cantidades" do
+                        expect(@menu.list_amount_ground_use(@vasca_complex, @cantidad_vasca)).to eq(30.2)
+                end
+
+                it "# Se calcula correctamente el uso del terreno de la dieta vasca con cantidades para un año" do
+                        expect(@menu.list_amount_ground_use_annual(@vasca_complex, @cantidad_vasca)).to eq(11023)
+                end
+        end
+
+	context "# Dieta Vegetaria" do
+                it "# Se calcula correctamente la media de gases de la dieta vegetaria" do
+                        expect(@menu.list_environmental_impact(@vegetaria)).to eq(33.8)
+                end
+
+                it "# Se calcula correctamente la media de gases de la dieta vegetaria para un año" do
+                        expect(@menu.list_environmental_impact_annual(@vegetaria)).to eq(12337)
+                end
+
+                it "# Se calcula correctamente el uso del terreno de la dieta vegetaria" do
+                        expect(@menu.list_ground_use(@vegetaria)).to eq(115.7)
+                end
+
+                it "# Se calcula correctamente el uso del terreno de la dieta vegetaria para un año" do
+                        expect(@menu.list_ground_use_annual(@vegetaria)).to eq(42230.5)
+                end
+
+                it "# Se calcula correctamente la media de gases de la dieta vegetaria con cantidades" do
+                        expect(@menu.list_amount_environmental_impact(@vegetaria_complex, @cantidad_vegetaria)).to eq(28.3)
+                end
+
+                it "# Se calcula correctamente la media de gases de la dieta vegetaria con cantidades para un año" do
+                        expect(@menu.list_amount_environmental_impact_annual(@vegetaria_complex, @cantidad_vegetaria)).to eq(10329.5)
+                end
+
+                it "# Se calcula correctamente el uso del terreno de la dieta vegetaria con cantidades" do
+                        expect(@menu.list_amount_ground_use(@vegetaria_complex, @cantidad_vegetaria)).to eq(95.2)
+                end
+
+                it "# Se calcula correctamente el uso del terreno de la dieta vegetaria con cantidades para un año" do
+                        expect(@menu.list_amount_ground_use_annual(@vegetaria_complex, @cantidad_vegetaria)).to eq(34748)
+                end
+        end
+
+	context "# Dieta Vegetaliana" do
+                it "# Se calcula correctamente la media de gases de la dieta vegetaliana" do
+                        expect(@menu.list_environmental_impact(@vegetaliana)).to eq(3.5)
+                end
+
+                it "# Se calcula correctamente la media de gases de la dieta vegetaliana para un año" do
+                        expect(@menu.list_environmental_impact_annual(@vegetaliana)).to eq(1277.5)
+                end
+
+                it "# Se calcula correctamente el uso del terreno de la dieta vegetaliana" do
+                        expect(@menu.list_ground_use(@vegetaliana)).to eq(20.3)
+                end
+
+                it "# Se calcula correctamente el uso del terreno de la dieta vegetaliana para un año" do
+                        expect(@menu.list_ground_use_annual(@vegetaliana)).to eq(7409.5)
+                end
+
+                it "# Se calcula correctamente la media de gases de la dieta vegetaliana con cantidades" do
+                        expect(@menu.list_amount_environmental_impact(@vegetaliana_complex, @cantidad_vegetaliana)).to eq(3.5)
+                end
+
+                it "# Se calcula correctamente la media de gases de la dieta vegetaliana con cantidades para un año" do
+                        expect(@menu.list_amount_environmental_impact_annual(@vegetaliana_complex, @cantidad_vegetaliana)).to eq(1277.5)
+                end
+
+                it "# Se calcula correctamente el uso del terreno de la dieta vegetaliana con cantidades" do
+                        expect(@menu.list_amount_ground_use(@vegetaliana_complex, @cantidad_vegetaliana)).to eq(20.3)
+                end
+
+                it "# Se calcula correctamente el uso del terreno de la dieta vegetaliana con cantidades para un año" do
+                        expect(@menu.list_amount_ground_use_annual(@vegetaliana_complex, @cantidad_vegetaliana)).to eq(7409.5)
+                end
+        end
+
+	context "# Dieta Locura por la Carne" do
+                it "# Se calcula correctamente la media de gases de la dieta locura por la carne" do
+                        expect(@menu.list_environmental_impact(@locura_carne)).to eq(78.7)
+                end
+
+                it "# Se calcula correctamente la media de gases de la dieta locura por la carne para un año" do
+                        expect(@menu.list_environmental_impact_annual(@locura_carne)).to eq(28725.5)
+                end
+
+                it "# Se calcula correctamente el uso del terreno de la dieta locura por la carne" do
+                        expect(@menu.list_ground_use(@locura_carne)).to eq(211.1)
+                end
+
+                it "# Se calcula correctamente el uso del terreno de la dieta locura por la carne para un año" do
+                        expect(@menu.list_ground_use_annual(@locura_carne)).to eq(77051.5)
+                end
+
+                it "# Se calcula correctamente la media de gases de la dieta locura por la carne con cantidades" do
+                        expect(@menu.list_amount_environmental_impact(@locura_carne_complex, @cantidad_locura_carne)).to eq(78.7)
+                end
+
+                it "# Se calcula correctamente la media de gases de la dieta locura por la carne con cantidades para un año" do
+                        expect(@menu.list_amount_environmental_impact_annual(@locura_carne_complex, @cantidad_locura_carne)).to eq(28725.5)
+                end
+
+                it "# Se calcula correctamente el uso del terreno de la dieta locura por la carne con cantidades" do
+                        expect(@menu.list_amount_ground_use(@locura_carne_complex, @cantidad_locura_carne)).to eq(211.1)
+                end
+
+                it "# Se calcula correctamente el uso del terreno de la dieta locura por la carne con cantidades para un año" do
+                        expect(@menu.list_amount_ground_use_annual(@locura_carne_complex, @cantidad_locura_carne)).to eq(77051.5)
+                end
+        end
 end
