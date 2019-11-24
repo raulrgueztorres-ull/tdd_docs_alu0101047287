@@ -76,7 +76,10 @@ RSpec.describe Food do
 
                 @locura_carne_complex = Food::List.new(@carne_vaca)
                 @locura_carne_complex.insert([@pollo, @cerdo, @huevos, @leche_vaca, @lentejas])
-                @cantidad_locura_carne = [1, 1, 2, 1, 1, 1]
+				@cantidad_locura_carne = [1, 1, 2, 1, 1, 1]
+				
+		@cantidadGR_española = [200, 100, 100, 100, 100, 100]
+		@plate = Food::Plate.new("Prueba", @española_complex, @cantidadGR_española)
 	end
 
 	context "# Nombre del Alimento" do
@@ -657,6 +660,12 @@ RSpec.describe Food do
 			array_value = []
 			array.each { |val| array_value.push(val.value) }
 			expect(array_value).to eq([@chocolate, @nuez])
+		end
+	end
+
+	context "Platos" do
+		it "# Existe un método para obtener el nombre de un plato" do
+			expect(@plate).to respond_to(:name)
 		end
 	end
 end
