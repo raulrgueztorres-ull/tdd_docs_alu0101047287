@@ -62,5 +62,14 @@ module Food
 			end
 			return length
 		end
+
+		def each 
+			return nil unless block_given?
+			current = self.tail
+			while current
+				yield current
+				current = current.next
+			end
+		end
 	end
 end

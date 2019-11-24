@@ -631,4 +631,32 @@ RSpec.describe Food do
 			expect(@carne_vaca.lipids.between?(@tofu.lipids, @carne_cordero.lipids)).to eq(false)
 		end
 	end
+
+	context "# Enumerar listas de alimentos con collect, select, max, min y sort" do
+		it "# Se ejecuta correctamente el método collect sobre una lista" do
+			expect(@española.collect { |val| val.value.proteins > 10}).to eq([true, true, true, false, false, true, true])
+		end
+
+		it "# Se ejecuta correctamente el método max sobre una lista" do
+			expect((@española.max { |a, b| a.value.energetic_value_complex(a.value.proteins, a.value.carbohydrates, a.value.lipids) <=> b.value.energetic_value_complex(b.value.proteins, b.value.carbohydrates, b.value.lipids)}).value).to eq(@nuez)
+		end
+
+		it "# Se ejecuta correctamente el método min sobre una lista" do
+			expect((@española.min { |a, b| a.value.energetic_value_complex(a.value.proteins, a.value.carbohydrates, a.value.lipids) <=> b.value.energetic_value_complex(b.value.proteins, b.value.carbohydrates, b.value.lipids)}).value).to eq(@leche_vaca)
+		end
+
+		it "# Se ejecuta correctamente el método sort sobre una lista" do
+			array = @española.sort { |a, b| a.value.energetic_value_complex(a.value.proteins, a.value.carbohydrates, a.value.lipids) <=> b.value.energetic_value_complex(b.value.proteins, b.value.carbohydrates, b.value.lipids)}
+			array_value = []
+			array.each { |val| array_value.push(val.value) }
+			expect(array_value).to eq([@leche_vaca, @camarones, @carne_cordero, @lentejas, @lentejas, @chocolate, @nuez])
+		end
+
+		it "# Se ejecuta correctamente el método select sobre una lista" do
+			array = @española.select { |val| val.value.energetic_value_complex(val.value.proteins, val.value.carbohydrates, val.value.lipids) > 400}
+			array_value = []
+			array.each { |val| array_value.push(val.value) }
+			expect(array_value).to eq([@chocolate, @nuez])
+		end
+	end
 end
