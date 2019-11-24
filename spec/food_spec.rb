@@ -667,5 +667,9 @@ RSpec.describe Food do
 		it "# Existe un método para obtener el nombre de un plato" do
 			expect(@plate).to respond_to(:name)
 		end
+
+		it "# Se obtiene correctamente el nombre de un plato" do
+			expect(@plate.name).to eq("Prueba")
+		end
 	end
 end
