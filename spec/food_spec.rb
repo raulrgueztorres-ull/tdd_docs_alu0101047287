@@ -484,5 +484,151 @@ RSpec.describe Food do
                 it "# Se calcula correctamente el uso del terreno de la dieta locura por la carne con cantidades para un año" do
                         expect(@menu.list_amount_ground_use_annual(@locura_carne_complex, @cantidad_locura_carne)).to eq(77051.5)
                 end
-        end
+	end
+
+	context "# Comparar la información nutricional y ambiental entre dos alimentos" do
+		it "# Se compara correctamente el aporte calórico de un alimento con otro usando <" do
+			expect(@carne_vaca < @carne_cordero).to eq(true)
+		end
+
+		it "# Se compara correctamente el aporte calórico de un alimento con otro usando >" do
+			expect(@carne_vaca > @carne_cordero).to eq(false)
+		end
+
+		it "# Se compara correctamente el aporte calórico de un alimento con otro usando ==" do
+			expect(@carne_vaca == @carne_cordero).to eq(false)
+		end
+
+		it "# Se compara correctamente el aporte calórico de un alimento con otro usando <=" do 
+			expect(@carne_vaca <= @carne_cordero).to eq(true)
+		end
+
+		it "# Se compara correctamente el aporte calórico de un alimento con otro usando >=" do
+			expect(@carne_vaca >= @carne_cordero).to eq(false)
+		end
+
+		it "# Se compara correctamente si el aporte calórico de un alimentro está en un rango con between?()" do
+			expect(@carne_vaca.between?(@tofu, @carne_cordero)).to eq(true)
+		end
+
+		it "# Se compara correctamente la información ambiental de un alimento con otro usando <" do
+			expect(@carne_vaca.gei < @carne_cordero.gei).to eq(false)
+		end
+
+		it "# Se compara correctamente la información ambiental de un alimento con otro usando >" do
+			expect(@carne_vaca.gei > @carne_cordero.gei).to eq(true)
+		end
+
+		it "# Se compara correctamente la información ambiental de un alimento con otro usando ==" do
+			expect(@carne_vaca.gei == @carne_cordero.gei).to eq(false)
+		end
+
+		it "# Se compara correctamente la información ambiental de un alimento con otro usando <=" do 
+			expect(@carne_vaca.gei <= @carne_cordero.gei).to eq(false)
+		end
+
+		it "# Se compara correctamente la información ambiental de un alimento con otro usando >=" do
+			expect(@carne_vaca.gei >= @carne_cordero.gei).to eq(true)
+		end
+
+		it "# Se compara correctamente si la información ambiental de un alimentro está en un rango con between?()" do
+			expect(@carne_vaca.gei.between?(@tofu.gei, @carne_cordero.gei)).to eq(false)
+		end
+
+		it "# Se compara correctamente el uso del terreno de un alimento con otro usando <" do
+			expect(@carne_vaca.ground < @carne_cordero.ground).to eq(true)
+		end
+
+		it "# Se compara correctamente el uso del terreno de un alimento con otro usando >" do
+			expect(@carne_vaca.ground > @carne_cordero.ground).to eq(false)
+		end
+
+		it "# Se compara correctamente el uso del terreno de un alimento con otro usando ==" do
+			expect(@carne_vaca.ground == @carne_cordero.ground).to eq(false)
+		end
+
+		it "# Se compara correctamente el uso del terreno de un alimento con otro usando <=" do 
+			expect(@carne_vaca.ground <= @carne_cordero.ground).to eq(true)
+		end
+
+		it "# Se compara correctamente el uso del terreno de un alimento con otro usando >=" do
+			expect(@carne_vaca.ground >= @carne_cordero.ground).to eq(false)
+		end
+
+		it "# Se compara correctamente si el uso del terreno de un alimentro está en un rango con between?()" do
+			expect(@carne_vaca.ground.between?(@tofu.ground, @carne_cordero.ground)).to eq(true)
+		end
+
+		it "# Se compara correctamente las proteinas de un alimento con otro usando <" do
+			expect(@carne_vaca.proteins < @carne_cordero.proteins).to eq(false)
+		end
+
+		it "# Se compara correctamente las proteinas de un alimento con otro usando >" do
+			expect(@carne_vaca.proteins > @carne_cordero.proteins).to eq(true)
+		end
+
+		it "# Se compara correctamente las proteinas de un alimento con otro usando ==" do
+			expect(@carne_vaca.proteins == @carne_cordero.proteins).to eq(false)
+		end
+
+		it "# Se compara correctamente las proteinas de un alimento con otro usando <=" do 
+			expect(@carne_vaca.proteins <= @carne_cordero.proteins).to eq(false)
+		end
+
+		it "# Se compara correctamente las proteinas de un alimento con otro usando >=" do
+			expect(@carne_vaca.proteins >= @carne_cordero.proteins).to eq(true)
+		end
+
+		it "# Se compara correctamente si las proteinas de un alimentro está en un rango con between?()" do
+			expect(@carne_vaca.proteins.between?(@tofu.proteins, @carne_cordero.proteins)).to eq(false)
+		end
+
+		it "# Se compara correctamente los carbohidratos de un alimento con otro usando <" do
+			expect(@carne_vaca.carbohydrates < @carne_cordero.carbohydrates).to eq(false)
+		end
+
+		it "# Se compara correctamente los carbohidratos de un alimento con otro usando >" do
+			expect(@carne_vaca.carbohydrates > @carne_cordero.carbohydrates).to eq(false)
+		end
+
+		it "# Se compara correctamente los carbohidratos de un alimento con otro usando ==" do
+			expect(@carne_vaca.carbohydrates == @carne_cordero.carbohydrates).to eq(true)
+		end
+
+		it "# Se compara correctamente los carbohidratos de un alimento con otro usando <=" do 
+			expect(@carne_vaca.carbohydrates <= @carne_cordero.carbohydrates).to eq(true)
+		end
+
+		it "# Se compara correctamente los carbohidratos de un alimento con otro usando >=" do
+			expect(@carne_vaca.carbohydrates >= @carne_cordero.carbohydrates).to eq(true)
+		end
+
+		it "# Se compara correctamente si los carbohidratos de un alimentro está en un rango con between?()" do
+			expect(@carne_vaca.carbohydrates.between?(@carne_cordero.carbohydrates, @tofu.carbohydrates)).to eq(true)
+		end
+
+		it "# Se compara correctamente los lipidos de un alimento con otro usando <" do
+			expect(@carne_vaca.lipids < @carne_cordero.lipids).to eq(true)
+		end
+
+		it "# Se compara correctamente los lipidos de un alimento con otro usando >" do
+			expect(@carne_vaca.lipids > @carne_cordero.lipids).to eq(false)
+		end
+
+		it "# Se compara correctamente los lipidos de un alimento con otro usando ==" do
+			expect(@carne_vaca.lipids == @carne_cordero.lipids).to eq(false)
+		end
+
+		it "# Se compara correctamente los lipidos de un alimento con otro usando <=" do 
+			expect(@carne_vaca.lipids <= @carne_cordero.lipids).to eq(true)
+		end
+
+		it "# Se compara correctamente los lipidos de un alimento con otro usando >=" do
+			expect(@carne_vaca.lipids >= @carne_cordero.lipids).to eq(false)
+		end
+
+		it "# Se compara correctamente si los lipidos de un alimentro está en un rango con between?()" do
+			expect(@carne_vaca.lipids.between?(@tofu.lipids, @carne_cordero.lipids)).to eq(false)
+		end
+	end
 end
