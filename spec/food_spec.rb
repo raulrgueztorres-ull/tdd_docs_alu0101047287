@@ -695,5 +695,9 @@ RSpec.describe Food do
 		it "# Se obtiene correctamente el porcentaje de carbohidratos del conjunto de alimentos" do
 			expect(@plate.percentage_carbohydrates()).to eq(33.54)
 		end
+
+		it "# Se obtiene correctamente el porcentaje de lípidos del conjunto de alimentos" do
+			expect(@plate.percentage_lipids()).to eq(45.54)
+		end
 	end
 end
