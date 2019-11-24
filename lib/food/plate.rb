@@ -25,6 +25,17 @@ module Food
             }
             return ((proteins * 100)/kcals).round(2)
         end
+
+        def percentage_carbohydrates()
+            kcals = kcals_plate
+            carbohydrates = 0
+            i = 0
+            food.each { |val|
+                carbohydrates += val.value.kcal_carbohydrates(val.value.carbohydrates * (food_gr[i]/100))
+                i += 1
+            }
+            return ((carbohydrates * 100)/kcals).round(2)
+        end
     end
 
 
