@@ -699,5 +699,9 @@ RSpec.describe Food do
 		it "# Se obtiene correctamente el porcentaje de lípidos del conjunto de alimentos" do
 			expect(@plate.percentage_lipids()).to eq(45.54)
 		end
+
+		it "# Se obtiene correctamente el valor calórico total del conjunto de alimentos" do
+			expect(@plate.VCT()).to eq(2126.4)
+		end
 	end
 end
