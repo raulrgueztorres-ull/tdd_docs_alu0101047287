@@ -47,6 +47,20 @@ module Food
             }
             return ((lipids * 100)/kcals).round(2)
         end
+
+        def to_s
+            format = "Nombre: #{name}, Alimentos:"
+            i = 0
+            food.each { |val| 
+                if val == food.tail
+                    format += " #{food_gr[i]} gr #{val.value.name}"
+                else
+                    format += ", #{food_gr[i]} gr #{val.value.name}"
+                end
+                i += 1
+            }
+            return format
+        end
     end
 
 
