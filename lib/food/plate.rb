@@ -36,6 +36,17 @@ module Food
             }
             return ((carbohydrates * 100)/kcals).round(2)
         end
+
+        def percentage_lipids()
+            kcals = kcals_plate
+            lipids = 0
+            i = 0
+            food.each { |val|
+                lipids += val.value.kcal_lipids(val.value.lipids * (food_gr[i]/100))
+                i += 1
+            }
+            return ((lipids * 100)/kcals).round(2)
+        end
     end
 
 
