@@ -703,5 +703,9 @@ RSpec.describe Food do
 		it "# Se obtiene correctamente el valor calórico total del conjunto de alimentos" do
 			expect(@plate.VCT()).to eq(2126.4)
 		end
+
+		it "# Se obtiene correctamente el plato formateado" do
+			expect(@plate.to_s).to eq("Nombre: Prueba, Alimentos: 200 gr Lentejas, 100 gr Camarones, 100 gr Chocolate, 100 gr Leche de Vaca, 100 gr Nuez, 100 gr Carne de Cordero")
+		end
 	end
 end
