@@ -687,5 +687,9 @@ RSpec.describe Food do
 		it "# Se obtiene correctamente el conjunto de gramos de los alimentos de un plato" do
 			expect(@plate.food_gr).to eq(@cantidadGR_española)
 		end
+
+		it "# Se obtiene correctamente el porcentaje de proteínas del conjunto de alimentos" do
+			expect(@plate.percentage_proteins()).to eq(20.92)
+		end
 	end
 end
