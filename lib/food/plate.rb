@@ -5,7 +5,7 @@ module Food
             @name, @food, @food_gr = name, food, food_gr
         end
 
-        def kcals_plate()
+        def VCT()
             kcals = 0
             i = 0
             food.each { |val|
@@ -16,7 +16,7 @@ module Food
         end
 
         def percentage_proteins()
-            kcals = kcals_plate
+            kcals = VCT()
             proteins = 0
             i = 0
             food.each { |val|
@@ -27,7 +27,7 @@ module Food
         end
 
         def percentage_carbohydrates()
-            kcals = kcals_plate
+            kcals = VCT()
             carbohydrates = 0
             i = 0
             food.each { |val|
@@ -38,7 +38,7 @@ module Food
         end
 
         def percentage_lipids()
-            kcals = kcals_plate
+            kcals = VCT()
             lipids = 0
             i = 0
             food.each { |val|
