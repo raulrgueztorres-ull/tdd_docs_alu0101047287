@@ -1,7 +1,7 @@
-module Food
-	
+module Food	
 	Node = Struct.new(:value, :next, :prev)
 	class List
+		include Enumerable
 		attr_reader :head, :tail
 		def initialize(value)
 			@head = Node.new(value, nil, nil)
