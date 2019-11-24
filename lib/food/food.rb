@@ -1,5 +1,6 @@
 module Food
 	class Food
+		include Comparable
 		attr_reader :name, :proteins, :carbohydrates, :lipids, :gei, :ground
 	
 		def initialize(name, proteins, carbohydrates, lipids, gei, ground)
@@ -8,6 +9,10 @@ module Food
 	
 		end
 		
+		def <=> (other)
+			energetic_value_complex(proteins, carbohydrates, lipids) <=> other.energetic_value_complex(other.proteins, other.carbohydrates, other.lipids)
+		end
+
 		def to_s
                         "#{@name}: #{@proteins} g Proteins | #{@carbohydrates} g Carbohydrates | #{@lipids} g Lipids | #{@gei} kgCO2eq GEI | #{@ground} m2año Ground"	
 		end
