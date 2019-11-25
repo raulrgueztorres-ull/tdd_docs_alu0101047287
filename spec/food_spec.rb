@@ -715,5 +715,9 @@ RSpec.describe Food do
 		it "# Se obtiene correctamente el co2 del plato" do
 			expect(@plate_ambiental.co2).to eq(44.6)
 		end
+
+		it "# Se obtiene correctamente el uso del terreno del plato" do
+			expect(@plate_ambiental.m2).to eq(214)
+		end
 	end
 end
