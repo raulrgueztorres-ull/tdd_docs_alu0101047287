@@ -3,12 +3,18 @@ module Food
     class PlateAmbiental < Plate
 
         attr_reader :co2, :m2
+        include Comparable
+
         def initialize(name, food, food_gr)
             super(name, food, food_gr)
             @co2 = daily_co2
             @m2 = ground_use_plate
         end
 
+        def <=> (other)
+            co2 <=> other.co2
+        end
+        
         def daily_co2
             array = []
             food_gr.each { |val| array.push(val/100) }

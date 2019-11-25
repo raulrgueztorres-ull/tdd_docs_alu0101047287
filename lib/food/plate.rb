@@ -1,8 +1,14 @@
 module Food
     class Plate
         attr_reader :name, :food, :food_gr
+        include Comparable
+        
         def initialize(name, food, food_gr)
             @name, @food, @food_gr = name, food, food_gr
+        end
+
+        def <=> (other)
+            VCT() <=> other.VCT()
         end
 
         def VCT()
