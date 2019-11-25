@@ -47,41 +47,113 @@ RSpec.describe Food do
 		@española.insert([@lentejas, @camarones, @chocolate, @leche_vaca, @nuez, @carne_cordero])
 		
 		@vasca = Food::List.new(@chocolate)
-                @vasca.insert([@leche_vaca, @leche_vaca, @tofu, @lentejas, @lentejas])
+        @vasca.insert([@leche_vaca, @leche_vaca, @tofu, @lentejas, @lentejas])
 
-                @vegetaria = Food::List.new(@lentejas)
-                @vegetaria.insert([@lentejas, @lentejas, @leche_vaca, @leche_vaca, @huevos, @queso, @queso])
+        @vegetaria = Food::List.new(@lentejas)
+        @vegetaria.insert([@lentejas, @lentejas, @leche_vaca, @leche_vaca, @huevos, @queso, @queso])
 
-                @vegetaliana = Food::List.new(@lentejas)
-                @vegetaliana.insert([@lentejas, @lentejas, @tofu, @nuez])
+        @vegetaliana = Food::List.new(@lentejas)
+        @vegetaliana.insert([@lentejas, @lentejas, @tofu, @nuez])
 
-                @locura_carne = Food::List.new(@carne_vaca)
-                @locura_carne.insert([@pollo, @cerdo, @cerdo, @huevos, @leche_vaca, @lentejas])		
+        @locura_carne = Food::List.new(@carne_vaca)
+        @locura_carne.insert([@pollo, @cerdo, @cerdo, @huevos, @leche_vaca, @lentejas])		
 
 		@española_complex = Food::List.new(@lentejas)
 		@española_complex.insert([@camarones, @chocolate, @leche_vaca, @nuez, @carne_cordero])	
 		@cantidad_española = [2, 1, 1, 1, 1, 1]
 
 		@vasca_complex = Food::List.new(@chocolate)
-                @vasca_complex.insert([@leche_vaca, @tofu, @lentejas])
-                @cantidad_vasca = [1, 2, 1, 2]
+        @vasca_complex.insert([@leche_vaca, @tofu, @lentejas])
+        @cantidad_vasca = [1, 2, 1, 2]
 
-                @vegetaria_complex = Food::List.new(@lentejas)
-                @vegetaria_complex.insert([@leche_vaca, @huevos, @queso])
-                @cantidad_vegetaria = [3, 2, 1, 1.5]
+    	@vegetaria_complex = Food::List.new(@lentejas)
+        @vegetaria_complex.insert([@leche_vaca, @huevos, @queso])
+        @cantidad_vegetaria = [3, 2, 1, 1.5]
 
-                @vegetaliana_complex = Food::List.new(@lentejas)
-                @vegetaliana_complex.insert([@tofu, @nuez])
-                @cantidad_vegetaliana = [3, 1, 1]
+        @vegetaliana_complex = Food::List.new(@lentejas)
+        @vegetaliana_complex.insert([@tofu, @nuez])
+        @cantidad_vegetaliana = [3, 1, 1]
 
-                @locura_carne_complex = Food::List.new(@carne_vaca)
-                @locura_carne_complex.insert([@pollo, @cerdo, @huevos, @leche_vaca, @lentejas])
-				@cantidad_locura_carne = [1, 1, 2, 1, 1, 1]
+        @locura_carne_complex = Food::List.new(@carne_vaca)
+        @locura_carne_complex.insert([@pollo, @cerdo, @huevos, @leche_vaca, @lentejas])
+		@cantidad_locura_carne = [1, 1, 2, 1, 1, 1]
 				
 		@cantidadGR_española = [200, 100, 100, 100, 100, 100]
 		@plate = Food::Plate.new("Prueba", @española_complex, @cantidadGR_española)
 
 		@plate_ambiental = Food::PlateAmbiental.new("Prueba", @española_complex, @cantidadGR_española)
+
+		@lentejas_camarones = Food::List.new(@lentejas)
+		@lentejas_camarones.insert([@camarones])
+		@gramos_lentejas_camarones = [200, 100]
+		@plate_española_1 = Food::PlateAmbiental.new("Lentejas con Camarones", @lentejas_camarones, @gramos_lentejas_camarones)
+		
+		@chocolate_leche = Food::List.new(@chocolate)
+		@chocolate_leche.insert([@leche_vaca])
+		@gramos_chocolate_leche = [100, 100]
+		@plate_española_2 = Food::PlateAmbiental.new("Chocolate con Leche", @chocolate_leche, @gramos_chocolate_leche)
+
+		@cordero_nuez = Food::List.new(@carne_cordero)
+		@cordero_nuez.insert([@nuez])
+		@gramos_cordero_nuez = [100, 100]
+		@plate_española_3 = Food::PlateAmbiental.new("Cordero con Nueces", @cordero_nuez, @gramos_cordero_nuez)
+
+		@española_list = Food::List.new(@plate_española_1)
+		@española_list.insert([@plate_española_2, @plate_española_3])
+
+		@tofu_lentejas = Food::List.new(@tofu)
+		@tofu_lentejas.insert([@lentejas])
+		@gramos_tofu_lentejas = [100, 200]
+		@plate_vasca_1 = Food::PlateAmbiental.new("Tofu con Lentejas", @tofu_lentejas, @gramos_tofu_lentejas)
+		@gramos_chocolate_leche_vasca = [100, 200]
+		@plate_vasca_2 = Food::PlateAmbiental.new("Chocolate con Leche", @chocolate_leche, @gramos_chocolate_leche_vasca)
+
+		@vasca_list = Food::List.new(@plate_vasca_1)
+		@vasca_list.insert([@plate_vasca_2])
+
+		@lentejas_huevos = Food::List.new(@lentejas)
+		@lentejas_huevos.insert([@huevos])
+		@gramos_lentejas_huevos = [100, 100]
+		@plate_vegetaria_1 = Food::PlateAmbiental.new("Lentejas con Huevos", @lentejas_huevos, @gramos_lentejas_huevos)
+
+		@leche_queso = Food::List.new(@leche_vaca)
+		@leche_queso.insert([@queso])
+		@gramos_leche_queso = [200, 150]
+		@plate_vegetaria_2 = Food::PlateAmbiental.new("Leche con Queso", @leche_queso, @gramos_leche_queso)
+
+		@vegetaria_list = Food::List.new(@plate_vegetaria_1)
+		@vegetaria_list.insert([@plate_vegetaria_2])
+
+		@lentejas_tofu = Food::List.new(@lentejas)
+		@lentejas_tofu.insert([@tofu])
+		@gramos_lentejas_tofu = [200, 100]
+		@plate_vegetaliana_1 = Food::PlateAmbiental.new("Lentejas con Tofu", @lentejas_tofu, @gramos_lentejas_tofu)
+
+		@lentejas_nuez = Food::List.new(@lentejas)
+		@lentejas_nuez.insert([@nuez])
+		@gramos_lentejas_nuez = [100, 100]
+		@plate_vegetaliana_2 = Food::PlateAmbiental.new("Lentejas con Nueces", @lentejas_nuez, @gramos_lentejas_nuez)
+
+		@vegetaliana_list = Food::List.new(@plate_vegetaliana_1)
+		@vegetaliana_list.insert([@plate_vegetaliana_2])
+
+		@vaca_lentejas = Food::List.new(@carne_vaca)
+        @vaca_lentejas.insert([@lentejas])
+        @gramos_vaca_lentejas = [100, 100]
+		@plate_locura_1 = Food::PlateAmbiental.new("Carne de Vaca con Lentejas", @vaca_lentejas, @gramos_vaca_lentejas)
+		
+		@pollo_huevos_cerdo = Food::List.new(@pollo)
+        @pollo_huevos_cerdo.insert([@huevos, @cerdo])
+        @gramos_pollo_huevos_cerdo = [100, 100, 100]
+		@plate_locura_2 = Food::PlateAmbiental.new("Pollo y Cerdo con Huevos", @pollo_huevos_cerdo, @gramos_pollo_huevos_cerdo)
+		
+		@cerdo_leche = Food::List.new(@cerdo)
+        @cerdo_leche.insert([@leche_vaca])
+        @gramos_cerdo_leche = [100, 100]
+        @plate_locura_3 = Food::PlateAmbiental.new("Cerdo y Leche", @cerdo_leche, @gramos_cerdo_leche)
+
+        @locura_carne_list = Food::List.new(@plate_locura_1)
+        @locura_carne_list.insert([@plate_locura_2, @plate_locura_3])
 	end
 
 	context "# Nombre del Alimento" do
@@ -738,4 +810,124 @@ RSpec.describe Food do
 			expect(@plate_ambiental.is_a?(BasicObject)).to eq(true)
 		end
 	end
+
+	context "# Pruebas para comparar la valoración nutricional y la eficiencia energética entre platos del menú de la dieta española" do 
+		it "# Comparación de la eficiencia energética entre dos platos con <, >, <= , >=, ==" do
+			expect(@española_list.head.value < @española_list.tail.value).to eq(false)
+			expect(@española_list.head.value > @española_list.tail.value).to eq(true)
+			expect(@española_list.head.value >= @española_list.tail.value).to eq(true)
+			expect(@española_list.head.value <= @española_list.tail.value).to eq(false)
+			expect(@española_list.head.value == @española_list.tail.value).to eq(false)
+
+			expect(@española_list.head.value.m2 < @española_list.tail.value.m2).to eq(false)
+			expect(@española_list.head.value.m2 > @española_list.tail.value.m2).to eq(true)
+			expect(@española_list.head.value.m2 >= @española_list.tail.value.m2).to eq(true)
+			expect(@española_list.head.value.m2 <= @española_list.tail.value.m2).to eq(false)
+			expect(@española_list.head.value.m2 == @española_list.tail.value.m2).to eq(false)
+		end
+
+		it "# Comparación de la valoración nutricional entre dos platos con <, >, <= , >=, ==" do
+			expect(@española_list.head.value.VCT < @española_list.tail.value.VCT).to eq(false)
+			expect(@española_list.head.value.VCT > @española_list.tail.value.VCT).to eq(true)
+			expect(@española_list.head.value.VCT >= @española_list.tail.value.VCT).to eq(true)
+			expect(@española_list.head.value.VCT <= @española_list.tail.value.VCT).to eq(false)
+			expect(@española_list.head.value.VCT == @española_list.tail.value.VCT).to eq(false)
+		end
+	end
+
+	context "# Pruebas para comparar la valoración nutricional y la eficiencia energética entre platos del menú de la dieta vasca" do 
+		it "# Comparación de la eficiencia energética entre dos platos con <, >, <= , >=, ==" do
+			expect(@vasca_list.head.value < @vasca_list.tail.value).to eq(false)
+			expect(@vasca_list.head.value > @vasca_list.tail.value).to eq(true)
+			expect(@vasca_list.head.value >= @vasca_list.tail.value).to eq(true)
+			expect(@vasca_list.head.value <= @vasca_list.tail.value).to eq(false)
+			expect(@vasca_list.head.value == @vasca_list.tail.value).to eq(false)
+
+			expect(@vasca_list.head.value.m2 < @vasca_list.tail.value.m2).to eq(false)
+			expect(@vasca_list.head.value.m2 > @vasca_list.tail.value.m2).to eq(true)
+			expect(@vasca_list.head.value.m2 >= @vasca_list.tail.value.m2).to eq(true)
+			expect(@vasca_list.head.value.m2 <= @vasca_list.tail.value.m2).to eq(false)
+			expect(@vasca_list.head.value.m2 == @vasca_list.tail.value.m2).to eq(false)
+		end
+
+		it "# Comparación de la valoración nutricional entre dos platos con <, >, <= , >=, ==" do
+			expect(@vasca_list.head.value.VCT < @vasca_list.tail.value.VCT).to eq(true)
+			expect(@vasca_list.head.value.VCT > @vasca_list.tail.value.VCT).to eq(false)
+			expect(@vasca_list.head.value.VCT >= @vasca_list.tail.value.VCT).to eq(false)
+			expect(@vasca_list.head.value.VCT <= @vasca_list.tail.value.VCT).to eq(true)
+			expect(@vasca_list.head.value.VCT == @vasca_list.tail.value.VCT).to eq(false)
+		end
+	end
+
+	context "# Pruebas para comparar la valoración nutricional y la eficiencia energética entre platos del menú de la dieta vegetaria" do 
+		it "# Comparación de la eficiencia energética entre dos platos con <, >, <= , >=, ==" do
+			expect(@vegetaria_list.head.value < @vegetaria_list.tail.value).to eq(false)
+			expect(@vegetaria_list.head.value > @vegetaria_list.tail.value).to eq(true)
+			expect(@vegetaria_list.head.value >= @vegetaria_list.tail.value).to eq(true)
+			expect(@vegetaria_list.head.value <= @vegetaria_list.tail.value).to eq(false)
+			expect(@vegetaria_list.head.value == @vegetaria_list.tail.value).to eq(false)
+
+			expect(@vegetaria_list.head.value.m2 < @vegetaria_list.tail.value.m2).to eq(false)
+			expect(@vegetaria_list.head.value.m2 > @vegetaria_list.tail.value.m2).to eq(true)
+			expect(@vegetaria_list.head.value.m2 >= @vegetaria_list.tail.value.m2).to eq(true)
+			expect(@vegetaria_list.head.value.m2 <= @vegetaria_list.tail.value.m2).to eq(false)
+			expect(@vegetaria_list.head.value.m2 == @vegetaria_list.tail.value.m2).to eq(false)
+		end
+
+		it "# Comparación de la valoración nutricional entre dos platos con <, >, <= , >=, ==" do
+			expect(@vegetaria_list.head.value.VCT < @vegetaria_list.tail.value.VCT).to eq(false)
+			expect(@vegetaria_list.head.value.VCT > @vegetaria_list.tail.value.VCT).to eq(true)
+			expect(@vegetaria_list.head.value.VCT >= @vegetaria_list.tail.value.VCT).to eq(true)
+			expect(@vegetaria_list.head.value.VCT <= @vegetaria_list.tail.value.VCT).to eq(false)
+			expect(@vegetaria_list.head.value.VCT == @vegetaria_list.tail.value.VCT).to eq(false)
+		end
+	end
+
+	context "# Pruebas para comparar la valoración nutricional y la eficiencia energética entre platos del menú de la dieta vegetaliana" do 
+		it "# Comparación de la eficiencia energética entre dos platos con <, >, <= , >=, ==" do
+			expect(@vegetaliana_list.head.value < @vegetaliana_list.tail.value).to eq(true)
+			expect(@vegetaliana_list.head.value > @vegetaliana_list.tail.value).to eq(false)
+			expect(@vegetaliana_list.head.value >= @vegetaliana_list.tail.value).to eq(false)
+			expect(@vegetaliana_list.head.value <= @vegetaliana_list.tail.value).to eq(true)
+			expect(@vegetaliana_list.head.value == @vegetaliana_list.tail.value).to eq(false)
+
+			expect(@vegetaliana_list.head.value.m2 < @vegetaliana_list.tail.value.m2).to eq(false)
+			expect(@vegetaliana_list.head.value.m2 > @vegetaliana_list.tail.value.m2).to eq(true)
+			expect(@vegetaliana_list.head.value.m2 >= @vegetaliana_list.tail.value.m2).to eq(true)
+			expect(@vegetaliana_list.head.value.m2 <= @vegetaliana_list.tail.value.m2).to eq(false)
+			expect(@vegetaliana_list.head.value.m2 == @vegetaliana_list.tail.value.m2).to eq(false)
+		end
+
+		it "# Comparación de la valoración nutricional entre dos platos con <, >, <= , >=, ==" do
+			expect(@vegetaliana_list.head.value.VCT < @vegetaliana_list.tail.value.VCT).to eq(false)
+			expect(@vegetaliana_list.head.value.VCT > @vegetaliana_list.tail.value.VCT).to eq(true)
+			expect(@vegetaliana_list.head.value.VCT >= @vegetaliana_list.tail.value.VCT).to eq(true)
+			expect(@vegetaliana_list.head.value.VCT <= @vegetaliana_list.tail.value.VCT).to eq(false)
+			expect(@vegetaliana_list.head.value.VCT == @vegetaliana_list.tail.value.VCT).to eq(false)
+		end
+	end
+
+	context "# Pruebas para comparar la valoración nutricional y la eficiencia energética entre platos del menú de la dieta locura por la carne" do 
+        it "# Comparación de la eficiencia energética entre dos platos con <, >, <= , >=, ==" do
+            expect(@locura_carne_list.head.value < @locura_carne_list.tail.value).to eq(true)
+            expect(@locura_carne_list.head.value > @locura_carne_list.tail.value).to eq(false)
+            expect(@locura_carne_list.head.value >= @locura_carne_list.tail.value).to eq(false)
+            expect(@locura_carne_list.head.value <= @locura_carne_list.tail.value).to eq(true)
+            expect(@locura_carne_list.head.value == @locura_carne_list.tail.value).to eq(false)
+
+            expect(@locura_carne_list.head.value.m2 < @locura_carne_list.tail.value.m2).to eq(true)
+            expect(@locura_carne_list.head.value.m2 > @locura_carne_list.tail.value.m2).to eq(false)
+            expect(@locura_carne_list.head.value.m2 >= @locura_carne_list.tail.value.m2).to eq(false)
+            expect(@locura_carne_list.head.value.m2 <= @locura_carne_list.tail.value.m2).to eq(true)
+            expect(@locura_carne_list.head.value.m2 == @locura_carne_list.tail.value.m2).to eq(false)
+        end
+
+        it "# Comparación de la valoración nutricional entre dos platos con <, >, <= , >=, ==" do
+            expect(@locura_carne_list.head.value.VCT < @locura_carne_list.tail.value.VCT).to eq(true)
+            expect(@locura_carne_list.head.value.VCT > @locura_carne_list.tail.value.VCT).to eq(false)
+            expect(@locura_carne_list.head.value.VCT >= @locura_carne_list.tail.value.VCT).to eq(false)
+            expect(@locura_carne_list.head.value.VCT <= @locura_carne_list.tail.value.VCT).to eq(true)
+            expect(@locura_carne_list.head.value.VCT == @locura_carne_list.tail.value.VCT).to eq(false)
+        end
+    end
 end
