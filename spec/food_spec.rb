@@ -723,5 +723,19 @@ RSpec.describe Food do
 		it "# Se formatea correctamente" do
 			expect(@plate_ambiental.to_s).to eq("Nombre: Prueba, Alimentos: 200 gr Lentejas, 100 gr Camarones, 100 gr Chocolate, 100 gr Leche de Vaca, 100 gr Nuez, 100 gr Carne de Cordero, Impacto: GEI de 44.6 kgCO2eq y Uso del terreno de 214.0 metros cuadrados")
 		end
+
+		it "# Comprobar la clase del objeto" do
+			expect(@plate_ambiental.class).to eq(Food::PlateAmbiental)
+		end
+
+		it "# Comprobar si es un plato" do
+			expect(@plate_ambiental.is_a?(Food::Plate)).to eq(true)
+			expect(@plate_ambiental.is_a?(Food::PlateAmbiental)).to eq(true)
+		end
+
+		it "# Comprobar que responde a Object y BasicObject" do
+			expect(@plate_ambiental.is_a?(Object)).to eq(true)
+			expect(@plate_ambiental.is_a?(BasicObject)).to eq(true)
+		end
 	end
 end
