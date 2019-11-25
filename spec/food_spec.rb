@@ -719,5 +719,9 @@ RSpec.describe Food do
 		it "# Se obtiene correctamente el uso del terreno del plato" do
 			expect(@plate_ambiental.m2).to eq(214)
 		end
+
+		it "# Se formatea correctamente" do
+			expect(@plate_ambiental.to_s).to eq("Nombre: Prueba, Alimentos: 200 gr Lentejas, 100 gr Camarones, 100 gr Chocolate, 100 gr Leche de Vaca, 100 gr Nuez, 100 gr Carne de Cordero, Impacto: GEI de 44.6 kgCO2eq y Uso del terreno de 214.0 metros cuadrados")
+		end
 	end
 end
