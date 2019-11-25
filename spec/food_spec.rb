@@ -80,6 +80,8 @@ RSpec.describe Food do
 				
 		@cantidadGR_española = [200, 100, 100, 100, 100, 100]
 		@plate = Food::Plate.new("Prueba", @española_complex, @cantidadGR_española)
+
+		@plate_ambiental = Food::PlateAmbiental.new("Prueba", @española_complex, @cantidadGR_española)
 	end
 
 	context "# Nombre del Alimento" do
@@ -706,6 +708,12 @@ RSpec.describe Food do
 
 		it "# Se obtiene correctamente el plato formateado" do
 			expect(@plate.to_s).to eq("Nombre: Prueba, Alimentos: 200 gr Lentejas, 100 gr Camarones, 100 gr Chocolate, 100 gr Leche de Vaca, 100 gr Nuez, 100 gr Carne de Cordero")
+		end
+	end
+
+	context "# Herencia" do
+		it "# Se obtiene correctamente el nombre desde el objeto PlateAmbiental" do
+			expect(@plate_ambiental.co2).to eq(0)
 		end
 	end
 end
