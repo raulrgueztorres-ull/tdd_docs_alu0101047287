@@ -20,5 +20,10 @@ module Food
             food_gr.each { |val| array.push(val/100) }
             food.tail.value.list_amount_ground_use(food, array)
         end
+
+        def to_s
+            s = super.to_s
+            s << ", Impacto: GEI de #{co2} kgCO2eq y Uso del terreno de #{m2} metros cuadrados" 
+        end
     end
 end
