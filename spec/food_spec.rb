@@ -712,7 +712,7 @@ RSpec.describe Food do
 	end
 
 	context "# Herencia" do
-		it "# Se obtiene correctamente el nombre desde el objeto PlateAmbiental" do
+		it "# Se obtiene correctamente el co2 del plato" do
 			expect(@plate_ambiental.co2).to eq(44.6)
 		end
 	end
