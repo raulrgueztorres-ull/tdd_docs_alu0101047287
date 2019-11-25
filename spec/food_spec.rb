@@ -929,5 +929,85 @@ RSpec.describe Food do
             expect(@locura_carne_list.head.value.VCT <= @locura_carne_list.tail.value.VCT).to eq(true)
             expect(@locura_carne_list.head.value.VCT == @locura_carne_list.tail.value.VCT).to eq(false)
         end
-    end
+	end
+	
+	context "# Pruebas para enumerar listas de platos de un menu de una dieta. Uso de collect, max, min, select y sort." do
+		it "# Uso de collect con listas de platos" do
+			expect(@española_list.collect { |val| val.value.VCT > 600 }).to eq([true, false, true])
+			expect(@vasca_list.collect { |val| val.value.VCT > 700 }).to eq([true, false])
+			expect(@vegetaria_list.collect { |val| val.value.VCT > 500 }).to eq([false, true])
+			expect(@vegetaliana_list.collect { |val| val.value.VCT > 800 }).to eq([false, true])
+			expect(@locura_carne_list.collect { |val| val.value.VCT > 300 }).to eq([true, true, false])
+		end
+
+		it "# Uso de select con listas de platos" do
+			array = @española_list.select { |val| val.value.VCT > 600 }
+			array_value = []
+			array.each { |val| array_value.push(val.value.name) }
+			expect(array_value).to eq(["Lentejas con Camarones", "Cordero con Nueces"])
+
+			array = @vasca_list.select { |val| val.value.VCT > 700 }
+			array_value = []
+			array.each { |val| array_value.push(val.value.name) }
+			expect(array_value).to eq(["Tofu con Lentejas"])
+
+			array = @vegetaria_list.select { |val| val.value.VCT > 500 }
+			array_value = []
+			array.each { |val| array_value.push(val.value.name) }
+			expect(array_value).to eq(["Leche con Queso"])
+
+			array = @vegetaliana_list.select { |val| val.value.VCT > 800 }
+			array_value = []
+			array.each { |val| array_value.push(val.value.name) }
+			expect(array_value).to eq(["Lentejas con Nueces"])
+
+			array = @locura_carne_list.select { |val| val.value.VCT > 300 }
+			array_value = []
+			array.each { |val| array_value.push(val.value.name) }
+			expect(array_value).to eq(["Carne de Vaca con Lentejas", "Pollo y Cerdo con Huevos"])
+		end
+
+		it "# Uso de max con listas de platos" do
+			expect((@española_list.max { |a,b| a.value.VCT <=> b.value.VCT }).value.name).to eq("Cordero con Nueces")
+			expect((@vasca_list.max { |a,b| a.value.VCT <=> b.value.VCT }).value.name).to eq("Tofu con Lentejas")
+			expect((@vegetaria_list.max { |a,b| a.value.VCT <=> b.value.VCT }).value.name).to eq("Leche con Queso")
+			expect((@vegetaliana_list.max { |a,b| a.value.VCT <=> b.value.VCT }).value.name).to eq("Lentejas con Nueces")
+			expect((@locura_carne_list.max { |a,b| a.value.VCT <=> b.value.VCT }).value.name).to eq("Pollo y Cerdo con Huevos")
+		end
+
+		it "# Uso de min con listas de platos" do
+			expect((@española_list.min { |a,b| a.value.VCT <=> b.value.VCT }).value.name).to eq("Chocolate con Leche")
+			expect((@vasca_list.min { |a,b| a.value.VCT <=> b.value.VCT }).value.name).to eq("Chocolate con Leche")
+			expect((@vegetaria_list.min { |a,b| a.value.VCT <=> b.value.VCT }).value.name).to eq("Lentejas con Huevos")
+			expect((@vegetaliana_list.min { |a,b| a.value.VCT <=> b.value.VCT }).value.name).to eq("Lentejas con Tofu")
+			expect((@locura_carne_list.min { |a,b| a.value.VCT <=> b.value.VCT }).value.name).to eq("Cerdo y Leche")
+		end
+
+		it "# Uso de sort con listas de platos" do
+			array = @española_list.sort { |a, b| a.value.VCT <=> b.value.VCT}
+			array_value = []
+			array.each { |val| array_value.push(val.value.name) }
+			expect(array_value).to eq(["Chocolate con Leche", "Lentejas con Camarones", "Cordero con Nueces"])
+			
+			array = @vasca_list.sort { |a, b| a.value.VCT <=> b.value.VCT}
+			array_value = []
+			array.each { |val| array_value.push(val.value.name) }
+			expect(array_value).to eq(["Chocolate con Leche", "Tofu con Lentejas"])
+			
+			array = @vegetaria_list.sort { |a, b| a.value.VCT <=> b.value.VCT}
+			array_value = []
+			array.each { |val| array_value.push(val.value.name) }
+			expect(array_value).to eq(["Lentejas con Huevos", "Leche con Queso"])
+
+			array = @vegetaliana_list.sort { |a, b| a.value.VCT <=> b.value.VCT}
+			array_value = []
+			array.each { |val| array_value.push(val.value.name) }
+			expect(array_value).to eq(["Lentejas con Tofu", "Lentejas con Nueces"])
+
+			array = @locura_carne_list.sort { |a, b| a.value.VCT <=> b.value.VCT}
+			array_value = []
+			array.each { |val| array_value.push(val.value.name) }
+			expect(array_value).to eq(["Cerdo y Leche", "Carne de Vaca con Lentejas", "Pollo y Cerdo con Huevos"])
+		end
+	end
 end
