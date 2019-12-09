@@ -153,7 +153,9 @@ RSpec.describe Food do
         @plate_locura_3 = Food::PlateAmbiental.new("Cerdo y Leche", @cerdo_leche, @gramos_cerdo_leche)
 
         @locura_carne_list = Food::List.new(@plate_locura_1)
-        @locura_carne_list.insert([@plate_locura_2, @plate_locura_3])
+		@locura_carne_list.insert([@plate_locura_2, @plate_locura_3])
+		
+		@funcional = [@plate_española_1, @plate_locura_1, @plate_vasca_1]
 	end
 
 	context "# Nombre del Alimento" do
@@ -1008,6 +1010,12 @@ RSpec.describe Food do
 			array_value = []
 			array.each { |val| array_value.push(val.value.name) }
 			expect(array_value).to eq(["Cerdo y Leche", "Carne de Vaca con Lentejas", "Pollo y Cerdo con Huevos"])
+		end
+	end
+
+	context "# Programación Funcional" do
+		it "# Se calcula correctament el índice de energía en programación funcional" do
+			expect(@plate_española_1.index_VCT).to eq(2)
 		end
 	end
 end
