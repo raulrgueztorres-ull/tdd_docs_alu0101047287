@@ -1,16 +1,28 @@
 module Food
+    # Clase Plate. Esta clase se emplea para definir un plato, es decir, un conjunto de alimentos.
     class Plate
+        # Definición de los atributos de lectura para name, food y food_gr.
         attr_reader :name, :food, :food_gr
+        #Incluye Comparable.
         include Comparable
         
+        # Método para la creación de un plato.
+        # @param name [String] Nombre del plato.
+        # @param food [List] Lista de alimentos del plato.
+        # @param food_gr [Array] Array de gramos de cada alimento del plato.
+        # @return [Plate] Objeto de clase Plate.
         def initialize(name, food, food_gr)
             @name, @food, @food_gr = name, food, food_gr
         end
 
+        # Método para el correcto funcionamiento de Comparable.
+        # @param other [Plate] Segundo plato a comparar.
         def <=> (other)
             VCT() <=> other.VCT()
         end
 
+        # Método para calcular el valor calórico total de un plato.
+        # @return [Numeric] Valor calórico total del plato.
         def VCT()
             kcals = 0
             i = 0
@@ -21,6 +33,8 @@ module Food
             return kcals
         end
 
+        # Método para calcular el porcentaje de proteinas del plato.
+        # @return [Numeric] Porcentaje de proteinas del plato.
         def percentage_proteins()
             kcals = VCT()
             proteins = 0
@@ -32,6 +46,8 @@ module Food
             return ((proteins * 100)/kcals).round(2)
         end
 
+        # Método para calcular el porcentaje de carbohidratos del plato.
+        # @return [Numeric] Porcentaje de carbohidratos del plato.
         def percentage_carbohydrates()
             kcals = VCT()
             carbohydrates = 0
@@ -43,6 +59,8 @@ module Food
             return ((carbohydrates * 100)/kcals).round(2)
         end
 
+        # Método para calcular el porcentaje de lípidos del plato.
+        # @return [Numeric] Porcentaje de lípidos del plato.
         def percentage_lipids()
             kcals = VCT()
             lipids = 0
@@ -54,6 +72,8 @@ module Food
             return ((lipids * 100)/kcals).round(2)
         end
 
+        # Método para formatear un plato.
+        # @return [String] Cadena con la descripción del plato.
         def to_s
             format = "Nombre: #{name}, Alimentos:"
             i = 0
@@ -68,6 +88,4 @@ module Food
             return format
         end
     end
-
-
 end
