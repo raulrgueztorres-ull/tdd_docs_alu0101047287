@@ -36,7 +36,17 @@ module Food
                 return 3
             end
         end
-        
+
+        def index_GEI
+            if daily_co2 < 800
+                return 1
+            elsif (800..1200) === daily_co2
+                return 2
+            else
+                return 3
+            end
+        end
+
         def to_s
             s = super.to_s
             s << ", Impacto: GEI de #{co2} kgCO2eq y Uso del terreno de #{m2} metros cuadrados" 
