@@ -1,8 +1,13 @@
 class Array 
-    def maxo
+    # Método para calcular el máximo elemento de un array de platos
+    # @return [PlateAmbiental] el plato del array con mayor huella nutricional
+    def maxo  
         self.max { |a, b| a.huella_nutricional <=> b.huella_nutricional }
     end
-    
+
+    # Método para incrementar el precio de los platos de un array
+    # @param plates [PlateAmbiental] array con los platos
+    # @return new_array [Array] array con los precios incrementados
     def incremento_precio(plates)
         max_huella = plates.maxo.huella_nutricional
         new_array = []
