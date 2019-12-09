@@ -4,6 +4,7 @@ module Food
 
         attr_reader :co2, :m2
         include Comparable
+        include Enumerable
 
         def initialize(name, food, food_gr)
             super(name, food, food_gr)
@@ -13,6 +14,7 @@ module Food
 
         def <=> (other)
             co2 <=> other.co2
+           #huella_nutricional <=> other.huella_nutricional
         end
         
         def daily_co2

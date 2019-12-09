@@ -1041,7 +1041,7 @@ RSpec.describe Food do
 		end
 
 		it "# Se calcula correctamente el plato con máxima huella nutricional de un array" do
-			expect(@funcional.max).to eq(@plate_lentejas_400)
+			expect(@funcional.maxo).to eq(@plate_lentejas_400)
 		end
 	end
 end
