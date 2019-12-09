@@ -26,6 +26,16 @@ module Food
             food_gr.each { |val| array.push(val/100) }
             food.tail.value.list_amount_ground_use(food, array)
         end
+        
+        def index_VCT
+            if VCT() < 670
+                return 1
+            elsif (670..830) === VCT()
+                return 2
+            else
+                return 3
+            end
+        end
 
         def to_s
             s = super.to_s
