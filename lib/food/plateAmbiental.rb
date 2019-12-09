@@ -46,6 +46,10 @@ module Food
                 return 3
             end
         end
+        
+        def huella_nutricional() 
+            ((index_VCT + index_GEI)/2).round(1)
+        end
 
         def to_s
             s = super.to_s
