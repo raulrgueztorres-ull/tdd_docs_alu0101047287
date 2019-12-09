@@ -73,7 +73,7 @@ module Food
         end
 
         # Método para formatear un plato.
-        # @return [String] Cadena con la descripción del plato.
+        # @return format [String] Cadena con la descripción del plato.
         def to_s
             format = "Nombre: #{name}, Alimentos:"
             i = 0

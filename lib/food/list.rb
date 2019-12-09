@@ -14,7 +14,7 @@ module Food
 
 		# Método para la creación de una lista.
 		# @param value Objeto a almacenar.
-		# @return Objeto de clase List.
+		# @return [List] Objeto de clase List.
 		def initialize(value)
 			@head = Node.new(value, nil, nil)
 			@tail = @head
