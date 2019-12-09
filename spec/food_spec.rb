@@ -1021,5 +1021,9 @@ RSpec.describe Food do
 		it "# Se calcula correctamente el índice de huella de carbono en programación funcional" do
 			expect(@plate_española_1.index_GEI).to eq(1)
 		end
+
+		it "# Se calcula correctamente el índice de huella nutricional en programación funcional" do
+			expect(@plate_española_1.huella_nutricional).to eq(1)
+		end
 	end
 end
