@@ -170,6 +170,7 @@ RSpec.describe Food do
 		@plate_lentejas_huevos_tofu = Food::PlateAmbiental.new("Lentejas con huevo y tofu", @lentejas_huevos_tofu, @gramos_lentejas_huevos_tofu)
 
 		@funcional = [@plate_vaca_huevos, @plate_lentejas_400, @plate_lentejas_huevos_tofu]
+		@prices = [5, 16, 3]
 	end
 
 	context "# Nombre del Alimento" do
@@ -1042,6 +1043,10 @@ RSpec.describe Food do
 
 		it "# Se calcula correctamente el plato con máxima huella nutricional de un array" do
 			expect(@funcional.maxo).to eq(@plate_lentejas_400)
+		end
+
+		it "# Se realiza correctamente el incremento del precio de un array" do 
+			expect(@prices.incremento_precio(@funcional)).to eq([6.25, 20, 3.75])
 		end
 	end
 end
