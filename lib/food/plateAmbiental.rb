@@ -36,7 +36,7 @@ module Food
                 return 3
             end
         end
-
+        
         def to_s
             s = super.to_s
             s << ", Impacto: GEI de #{co2} kgCO2eq y Uso del terreno de #{m2} metros cuadrados" 
