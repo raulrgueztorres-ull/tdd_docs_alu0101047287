@@ -154,8 +154,22 @@ RSpec.describe Food do
 
         @locura_carne_list = Food::List.new(@plate_locura_1)
 		@locura_carne_list.insert([@plate_locura_2, @plate_locura_3])
-		
-		@funcional = [@plate_española_1, @plate_locura_1, @plate_vasca_1]
+
+		@vaca_huevos = Food::List.new(@carne_vaca)
+		@vaca_huevos.insert([@huevos])
+		@gramos_vaca_huevos = [100, 100]
+		@plate_vaca_huevos = Food::PlateAmbiental.new("Carne con huevos", @vaca_huevos, @gramos_vaca_huevos)
+
+		@lentejas_400 = Food::List.new(@lentejas)
+		@gramos_lentejas_400 = [400]
+		@plate_lentejas_400 = Food::PlateAmbiental.new("Lentejas Full", @lentejas_400, @gramos_lentejas_400)
+
+		@lentejas_huevos_tofu = Food::List.new(@lentejas)
+		@lentejas_huevos_tofu.insert([@huevos, @tofu])
+		@gramos_lentejas_huevos_tofu = [200, 100, 100]
+		@plate_lentejas_huevos_tofu = Food::PlateAmbiental.new("Lentejas con huevo y tofu", @lentejas_huevos_tofu, @gramos_lentejas_huevos_tofu)
+
+		@funcional = [@plate_vaca_huevos, @plate_lentejas_400, @plate_lentejas_huevos_tofu]
 	end
 
 	context "# Nombre del Alimento" do
@@ -1024,6 +1038,10 @@ RSpec.describe Food do
 
 		it "# Se calcula correctamente el índice de huella nutricional en programación funcional" do
 			expect(@plate_española_1.huella_nutricional).to eq(1)
+		end
+
+		it "# Se calcula correctamente el plato con máxima huella nutricional de un array" do
+			expect(@funcional.max).to eq(@plate_lentejas_400)
 		end
 	end
 end
